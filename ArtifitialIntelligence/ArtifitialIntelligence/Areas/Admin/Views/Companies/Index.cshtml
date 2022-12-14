@@ -1,0 +1,47 @@
+﻿@using ArtifitialIntelligence.Models
+@model IEnumerable<Company>
+@{
+    ViewData["Title"] = "Index";
+    int serialNo = 1;
+}
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <h3 class="text-info">Companies List</h3>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus"></i>&nbsp; Add New Company</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border">
+        <thead>
+            <tr class="table-info">
+                <td >Serial No</td>
+                <th>@Html.DisplayNameFor(c=>c.CompanyName)</th>
+                <th>@Html.DisplayNameFor(c=>c.Summary)</th>
+                <th>@Html.DisplayNameFor(c=>c.ImageFileName)</th>
+                <th>@Html.DisplayNameFor(c=>c.AnchorLink)</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var company in Model)
+            {
+                <tr >
+                    <td>@(serialNo++)</td>
+                    <td>@company.CompanyName</td>
+                    <td>@company.Summary</td>
+                    <td>@company.ImageFileName</td>
+                    <td>@company.AnchorLink</td>
+                    <partial name="_ButtonPartial" model="@company.Id" />
+                </tr>
+            }
+           
+        </tbody>
+        
+    </table>
+</div>
