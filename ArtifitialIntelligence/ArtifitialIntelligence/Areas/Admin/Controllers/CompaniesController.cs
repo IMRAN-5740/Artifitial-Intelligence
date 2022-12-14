@@ -39,5 +39,34 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
             }
             return View(company);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int ? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+            var companies = _context.Companies.Find(id);
+            if(companies==null)
+            {
+                return NotFound();
+            }
+
+            return View(companies);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Company company)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Companies.Update(company);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(company);
+
+        }
     }
 }
