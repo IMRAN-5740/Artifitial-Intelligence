@@ -68,5 +68,69 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
             return View(company);
 
         }
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var companies = _context.Companies.Find(id);
+            if (companies == null)
+            {
+                return NotFound();
+            }
+
+            return View(companies);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public  IActionResult Details(Company company)
+        {
+             return RedirectToAction(nameof(Index));
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var companies = _context.Companies.Find(id);
+            if (companies == null)
+            {
+                return NotFound();
+            }
+
+            return View(companies);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int? id,Company company)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+            if(id!=company.Id)
+            {
+                return NotFound();
+            }
+            var companies = _context.Companies.Find(id);
+            if(companies==null)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _context.Companies.Remove(companies);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(company);
+
+        }
+
     }
 }
