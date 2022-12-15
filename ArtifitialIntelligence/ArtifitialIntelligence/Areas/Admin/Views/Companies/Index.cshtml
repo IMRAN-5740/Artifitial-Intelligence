@@ -24,6 +24,7 @@
                 <th>@Html.DisplayNameFor(c=>c.Summary)</th>
                 <th>@Html.DisplayNameFor(c=>c.ImageFileName)</th>
                 <th>@Html.DisplayNameFor(c=>c.AnchorLink)</th>
+                <th>@Html.DisplayNameFor(c=>c.Like)</th>
                 <th>Action</th>
 
             </tr>
@@ -37,6 +38,7 @@
                     <td>@company.Summary</td>
                     <td>@company.ImageFileName</td>
                     <td>@company.AnchorLink</td>
+                    <td>@company.Like</td>
                     <partial name="_ButtonPartial" model="@company.Id" />
                 </tr>
             }
@@ -45,3 +47,35 @@
         
     </table>
 </div>
+
+
+@section Scripts{
+    
+    <script type="text/javascript">
+        $(function()
+        {
+            var save = '@TempData["Save"]'
+            if(save!='')
+            {
+                alertify.success(save);
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var update = '@TempData["Update"]'
+            if (update != '') {
+                alertify.success(update);
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var error = '@TempData["Delete"]'
+            if (error != '') {
+                alertify.error(error);
+            }
+        })
+    </script>
+}
