@@ -168,3 +168,5 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Deb
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ButtonPartial.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Companies\Index.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Companies\Create.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Companies\Edit.cshtml.g.cs

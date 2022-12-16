@@ -12,11 +12,11 @@ namespace ArtifitialIntelligence.Models
         [Required] 
         public string Summary { get; set; }
 
-        [Display(Name = "Image Name")]
+        [Display(Name = "Company Picture")]
         public string ImageFileName { get; set; }
         [Display(Name = "Anchor Link")]
-        [Required] 
-        public string AnchorLink { get; set; }
+        
+        public string? AnchorLink { get; set; }
         [Display(Name ="Vote")] 
         public int Like { get; set; }
         [Display(Name="Like")]  

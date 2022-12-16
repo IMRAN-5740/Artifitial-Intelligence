@@ -1,0 +1,95 @@
+﻿@using ArtifitialIntelligence.Models;
+@model Company
+@{
+    ViewData["Title"] = "Edit";
+}
+<br />
+
+<style>
+    .col-3 img{
+        border-radius:5px; 
+        border:solid;
+        border-color:aqua;
+    }
+</style>
+<h2 class="text-info">Edit Company</h2>
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+        
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <div class="col-8">
+            
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CompanyName"></label>
+                </div>
+                <div class="col-8">
+                    <input type="hidden"asp-for="Id" />
+                    <input type="hidden"asp-for="ImageFileName" />
+                    <input asp-for="CompanyName" class="form-control" />
+
+                </div>
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Summary"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Summary" class="form-control" />
+
+                </div>
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ImageFileName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ImageFileName" class="form-control" type="file" />
+
+                </div>
+                <span asp-validation-for="ImageFileName" class="text-danger"></span>
+            </div>
+
+            
+
+            
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="canIncreaseLike"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="canIncreaseLike" class="" type="checkbox" />Available
+                    @* <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable*@
+
+                </div>
+                <span asp-validation-for="canIncreaseLike" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Update" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/@Model.ImageFileName" width="100%"  />
+        </div>
+
+        
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+    }
+
+
