@@ -35,16 +35,16 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
         }
 
         // Index Post Action Method
-        //[HttpPost]
-        //public IActionResult Index(decimal? lowAmount, decimal? largeAmount)
-        //{
-        //    var products = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).Where(x => x.Price >= lowAmount && x.Price <= largeAmount).ToList();
-        //    if (lowAmount == null || largeAmount == null)
-        //    {
-        //        products = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList();
-        //    }
-        //    return View(products);
-        //}
+        [HttpPost]
+        public IActionResult Index(string? Name)
+        {
+            var companies = _context.Companies.Where(x => x.CompanyName ==Name).ToList();
+            if (Name==null)
+            {
+                companies = _context.Companies.ToList();
+            }
+            return View(companies);
+        }
 
         // Create Get Method
         [HttpGet]
