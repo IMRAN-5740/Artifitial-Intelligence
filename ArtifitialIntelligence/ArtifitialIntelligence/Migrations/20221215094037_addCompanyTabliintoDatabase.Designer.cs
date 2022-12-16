@@ -46,7 +46,7 @@ namespace ArtifitialIntelligence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("canIncreaseLike")
+                    b.Property<bool>("CanIncreaseLike")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

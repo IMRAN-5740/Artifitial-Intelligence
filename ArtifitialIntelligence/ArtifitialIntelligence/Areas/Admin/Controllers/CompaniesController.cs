@@ -20,10 +20,10 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
     public class CompaniesController : Controller
     {
         private ApplicationDbContext _context;
-        private IHostingEnvironment _he;
+        private IWebHostEnvironment _he;
 
         [System.Obsolete]
-        public CompaniesController(ApplicationDbContext context, IHostingEnvironment he)
+        public CompaniesController(ApplicationDbContext context,IWebHostEnvironment he)
         {
             _context = context;
             _he = he;
@@ -45,12 +45,11 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
         //    }
         //    return View(products);
         //}
+
         // Create Get Method
         [HttpGet]
         public IActionResult Create()
         {
-
-            //< td > @Html.DropDownListFor(c => c.DepartmentId, new SelectList(ViewBag.Department, "Id", "DeptShortName"), "....Select....", new { @class = "form-control" }) </ td >
             return View();
         }
 
@@ -82,7 +81,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
                     company.ImageFileName = "Images/No-Image.png";
                 }
 
-                if(company.canIncreaseLike==true)
+                if(company.CanIncreaseLike==true)
                 {
                     company.Like++;
                 }
@@ -95,7 +94,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
             return View(company);
         }
 
-      
+        //Edit Get Action Method
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -143,6 +142,14 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
                     company.ImageFileName = oldImage;
 
                 }
+                if(company.CanIncreaseLike==false && company.Like>0)
+                {
+                    company.Like--;
+                }
+                if(company.CanIncreaseLike==true)
+                {
+                    company.Like++;
+                }
                 _context.Companies.Update(company);
                 await _context.SaveChangesAsync();
                 TempData["Update"] = "Company Updated Successfully";
@@ -186,7 +193,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
         }
 
 
-        //Post Action Methd
+        //Post Delete Action Methd
         [HttpPost]
         public async Task<ActionResult> Delete(Company company, int? id, IFormFile image)
         {

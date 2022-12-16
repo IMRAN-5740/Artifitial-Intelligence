@@ -20,6 +20,6 @@ namespace ArtifitialIntelligence.Models
         [Display(Name ="Vote")] 
         public int Like { get; set; }
         [Display(Name="Like")]  
-        public bool canIncreaseLike { get; set; }
+        public bool CanIncreaseLike { get; set; }
     }
 }
