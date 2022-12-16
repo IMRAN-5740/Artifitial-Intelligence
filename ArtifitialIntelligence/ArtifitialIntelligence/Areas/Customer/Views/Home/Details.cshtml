@@ -1,0 +1,128 @@
+﻿@using ArtifitialIntelligence.Models;
+@model Company
+@{
+    ViewData["Title"] = "Details";
+}
+<br />
+@*@using System.Net.Http
+
+@using Microsoft.AspNetCore.Http
+@using ArtifitialIntelligence.Utility
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+
+    List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
+    Company company = null;
+    if (companies != null)
+    {
+        company = companies.FirstOrDefault(c => c.Id == Model.Id);
+    }   
+}*@
+<style>
+    .col-3 img {
+        border-radius: 5px;
+        border: solid;
+        border-color: aqua;
+    }
+</style>
+<h2 class="text-info">Company Details</h2>
+<form asp-action="Details" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CompanyName"></label>
+                </div>
+                <div class="col-8">
+                    <input type="hidden" asp-for="Id" />
+                    <input asp-for="CompanyName" readonly="readonly" class="form-control" />
+
+                </div>
+               
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Summary"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Summary" readonly="readonly" class="form-control" />
+
+                </div>
+              
+            </div>
+
+            
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="AnchorLink"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ImageFileName" class="form-control" readonly="readonly" />
+
+                </div>
+                
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Like"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Like" class="form-control" readonly="readonly" />
+
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                   
+                </div>
+
+                @*<div class="col-8">
+                    @if(product==null)
+                    {
+                        <input type="submit" class="btn btn-info form-control" value="Add to Card" />
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.Id">Remove to Cart</button>
+                    }
+                    
+
+                </div>*@
+               
+            </div>
+
+            <div class="form-group">
+                
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/@Model.ImageFileName" width="100%" />
+            @*@if(Model.IsAvailable)
+            {
+                <img src="~/Images/in-stock.jpg" width="100%" height="70px" />
+            }
+            else
+            {
+                <img src="~/Images/out-of-stock.jpg" width="100%" height="70px" />
+            }*@
+        </div>
+
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+    }
+
+
