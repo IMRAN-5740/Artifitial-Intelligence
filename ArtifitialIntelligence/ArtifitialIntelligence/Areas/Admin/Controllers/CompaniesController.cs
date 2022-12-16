@@ -224,7 +224,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
 
                 _context.Remove(comapanyFind);
                 await _context.SaveChangesAsync();
-                TempData["done"] = "Product Deleted Successfully";
+                TempData["Delete"] = "Company Deleted Successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(comapanyFind);
