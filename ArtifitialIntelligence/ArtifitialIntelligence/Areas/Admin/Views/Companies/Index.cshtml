@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<form method="post">
+<form method="post" >
     <div class="row">
         <div class="col-3"><input type="text" placeholder="Enter Company...." class="form-control" name="Name" /></div>
         <div class="col-3"><input  type="submit"  value="Search Company" class="btn btn-success"/></div>
@@ -57,13 +57,18 @@
             }
         </tbody>
        
-
     </table>
 </div>
 
 @section Scripts
     {
-    
+    <script type="text/javascript">
+
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+        });
+    </script>
+
     <script type="text/javascript">
         
         $(function () {
