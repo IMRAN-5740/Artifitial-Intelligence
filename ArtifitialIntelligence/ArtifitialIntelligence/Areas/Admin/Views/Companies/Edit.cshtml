@@ -38,7 +38,7 @@
                     <label asp-for="Summary"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Summary" class="form-control" />
+                    <textarea asp-for="Summary"  class="form-control" rows="4"></textarea>
 
                 </div>
                 <span asp-validation-for="Summary" class="text-danger"></span>
@@ -51,7 +51,7 @@
                     <label asp-for="ImageFileName"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="ImageFileName" class="form-control" type="file" />
+                    <input asp-for="ImageFileName" class="form-control" name="image" type="file" />
 
                 </div>
                 <span asp-validation-for="ImageFileName" class="text-danger"></span>

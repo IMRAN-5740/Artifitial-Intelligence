@@ -222,7 +222,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
 
                     string oldImage = Path.Combine(_he.WebRootPath + "/" + comapanyFind.ImageFileName);
 
-                    if (System.IO.File.Exists(oldImage))
+                    if (System.IO.File.Exists(oldImage) && comapanyFind.ImageFileName != "Images/No-Image.png")
                     {
                         System.IO.File.Delete(oldImage);
                     }
