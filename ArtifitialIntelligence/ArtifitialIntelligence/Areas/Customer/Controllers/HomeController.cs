@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Reflection.Emit;
 
 namespace ArtifitialIntelligence.Controllers
 {
@@ -26,8 +27,10 @@ namespace ArtifitialIntelligence.Controllers
 
         public IActionResult Index()
         {
-            var companies=_context.Companies.ToList();
-            return View(companies);
+            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList();
+            _context.Companies.AddRange(mySortedList.ToArray());
+           // var companies=_context.Companies.ToList();
+            return View(mySortedList);
         }
         //Post Index Method
         [HttpPost]
