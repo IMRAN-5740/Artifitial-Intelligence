@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using ArtifitialIntelligence.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    int count = 0;
+    List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
+    if (companies == null)
+    {
+        companies = new List<Company>();
+    }
+    count = companies.Count();
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,6 +44,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index"></a>
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            (@count)
                         </li>
                     </ul>
                 </div>

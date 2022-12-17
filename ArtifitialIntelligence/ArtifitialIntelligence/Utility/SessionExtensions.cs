@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Text.Json;
 
-namespace OnlineShop.Utility
+namespace ArtifitialIntelligence.Utility
 {
     public static class SessionExtensions
     {

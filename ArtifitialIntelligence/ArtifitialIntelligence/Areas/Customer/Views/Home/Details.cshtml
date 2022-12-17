@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 <br />
-@*@using System.Net.Http
+@using System.Net.Http
 
 @using Microsoft.AspNetCore.Http
 @using ArtifitialIntelligence.Utility
@@ -17,7 +17,7 @@
     {
         company = companies.FirstOrDefault(c => c.Id == Model.Id);
     }   
-}*@
+}
 <style>
     .col-3 img {
         border-radius: 5px;
@@ -83,8 +83,8 @@
                    
                 </div>
 
-                @*<div class="col-8">
-                    @if(product==null)
+                <div class="col-8">
+                    @if(company==null)
                     {
                         <input type="submit" class="btn btn-info form-control" value="Add to Card" />
                     }
@@ -94,7 +94,7 @@
                     }
                     
 
-                </div>*@
+                </div>
                
             </div>
 

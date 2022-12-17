@@ -3,7 +3,7 @@ using ArtifitialIntelligence.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnlineShop.Utility;
+using ArtifitialIntelligence.Utility;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,7 +29,31 @@ namespace ArtifitialIntelligence.Controllers
             var companies=_context.Companies.ToList();
             return View(companies);
         }
-
+        //Post Index Method
+        [HttpPost]
+        [ActionName("Index")]
+        public IActionResult SingleIndex(int?id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+            var company = _context.Companies.FirstOrDefault(c => c.Id == id);
+            if(company==null)
+            {
+                return NotFound(); 
+            }
+            List<Company> companies = new List<Company>();
+            companies = HttpContext.Session.Get<List<Company>>("companies");
+            if (companies == null)
+            {
+                companies = new List<Company>();
+            }
+            companies.Add(company);
+            HttpContext.Session.Set("companies", companies);
+            //return View(product);
+            return RedirectToAction(nameof(Index));
+        }
 
 
         //Get Product Details Action Method
@@ -41,16 +65,17 @@ namespace ArtifitialIntelligence.Controllers
                 return NotFound();
             }
             var company = _context.Companies.FirstOrDefault(c => c.Id == id);
-            if (company == null)
+            if(company==null)
             {
                 return NotFound();
             }
+           
             return View(company);
         }
         //Post Product Details Action in Session Method
         [HttpPost]
         [ActionName("Details")]
-        public ActionResult ProductDetails(int? id)
+        public ActionResult CompanyDetails(int? id)
         {
             List<Company> companies = new List<Company>();
             if (id == null)
