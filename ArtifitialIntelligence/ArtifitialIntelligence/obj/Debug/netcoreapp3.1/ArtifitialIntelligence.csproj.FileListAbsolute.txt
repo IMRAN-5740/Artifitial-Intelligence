@@ -173,3 +173,10 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Deb
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Companies\Details.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Companies\Delete.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\X.PagedList.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Common.dll

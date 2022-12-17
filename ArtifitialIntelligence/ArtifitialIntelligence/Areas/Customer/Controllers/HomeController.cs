@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection.Emit;
+using X.PagedList;
 
 namespace ArtifitialIntelligence.Controllers
 {
@@ -25,9 +26,9 @@ namespace ArtifitialIntelligence.Controllers
             _context=context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index( int? page)
         {
-            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList();
+            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList().ToPagedList(page??1,3);
             _context.Companies.AddRange(mySortedList.ToArray());
            // var companies=_context.Companies.ToList();
             return View(mySortedList);

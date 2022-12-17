@@ -1,7 +1,6 @@
 ﻿@using ArtifitialIntelligence.Models;
-@model List<Company>
-@*@using X.PagedList.Mvc.Core
-@model X.PagedList.IPagedList<Company>*@
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Company>
 
 @*@using System.Net.Http
 
@@ -74,7 +73,6 @@
 
 
 
-@*<div>
-    @Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c),X.PagedList.Web.Common.PagedListRenderOptions.MinimalWithItemCountText)
+<div>
+    @Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))
 </div>
-*@
