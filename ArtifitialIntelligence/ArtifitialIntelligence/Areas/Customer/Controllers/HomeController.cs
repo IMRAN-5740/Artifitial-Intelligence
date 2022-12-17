@@ -32,27 +32,33 @@ namespace ArtifitialIntelligence.Controllers
         //Post Index Method
         [HttpPost]
         [ActionName("Index")]
-        public IActionResult SingleIndex(int?id)
+     public IActionResult CompanyIndex(int? id)
         {
-            if(id==null)
+
+            if (id == null)
             {
                 return NotFound();
             }
             var company = _context.Companies.FirstOrDefault(c => c.Id == id);
-            if(company==null)
+            if (company == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
-            List<Company> companies = new List<Company>();
-            companies = HttpContext.Session.Get<List<Company>>("companies");
-            if (companies == null)
+
+           // Company aCompany = new Company();
+            if(id!=null)
             {
-                companies = new List<Company>();
+                company.Like+=1;
+               // return View(company);
             }
-            companies.Add(company);
-            HttpContext.Session.Set("companies", companies);
-            //return View(product);
-            return RedirectToAction(nameof(Index));
+            // HttpContext.Session.Set("aCompany", aCompany);
+            // //return View(product);
+
+            //  _context.Companies.Add(company);
+            var companies = _context.Companies.ToList();
+            _context.SaveChangesAsync();
+            return View(companies);
+            // return RedirectToAction(nameof(Index));
         }
 
 

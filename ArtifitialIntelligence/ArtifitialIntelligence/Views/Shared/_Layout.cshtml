@@ -10,6 +10,18 @@
     }
     count = companies.Count();
 }
+@*@{
+    int sumValue = 0;
+    Company aCompany = HttpContextAccessor.HttpContext.Session.Get<Company>("aCompany");
+    if(aCompany==null)
+    {
+        aCompany = new Company();
+    }
+    sumValue = aCompany.Like;
+}
+*@
+
+
 
 
 <!DOCTYPE html>
@@ -46,11 +58,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index"></a>
                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                             (@count)
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>

@@ -48,7 +48,7 @@
                     <label asp-for="Summary"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Summary" readonly="readonly" class="form-control" />
+                    <textarea asp-for="Summary" readonly="readonly" class="form-control" rows="4"></textarea>
 
                 </div>
               
@@ -83,7 +83,7 @@
                    
                 </div>
 
-                <div class="col-8">
+               @* <div class="col-8">
                     @if(company==null)
                     {
                         <input type="submit" class="btn btn-info form-control" value="Add to Card" />
@@ -94,7 +94,7 @@
                     }
                     
 
-                </div>
+                </div>*@
                
             </div>
 
