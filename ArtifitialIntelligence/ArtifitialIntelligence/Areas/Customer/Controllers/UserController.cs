@@ -1,9 +1,11 @@
-﻿using ArtifitialIntelligence.Models;
+﻿using ArtifitialIntelligence.Data;
+using ArtifitialIntelligence.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
@@ -13,14 +15,17 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
     {
 
         UserManager<IdentityUser> _userManager;
-        public UserController(UserManager<IdentityUser> userManager)
+        ApplicationDbContext _context;
+        public UserController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
+            _context=context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var allUsers = _context.AplicationUsers.ToList();
+            return View(allUsers);
         }
 
         public async Task<IActionResult> Create()
