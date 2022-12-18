@@ -83,17 +83,79 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             user.FirstName = userAppication.FirstName;
             user.MiddleName = userAppication.MiddleName;
             user.LastName= userAppication.LastName;
-           var resultUSer= await _userManager.UpdateAsync(user);
-            if(resultUSer.Succeeded)
+           var resultUser= await _userManager.UpdateAsync(user);
+            if(resultUser.Succeeded)
             {
                 TempData["Update"] = "User Data Has been Updated";
                 return RedirectToAction(nameof(Index));
             }
-            foreach(var error in resultUSer.Errors)
+            foreach(var error in resultUser.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
             return View(user);
+        }
+
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var user = _context.AplicationUsers.FirstOrDefault(c => c.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+
+        public async Task<IActionResult> Delete(string id)
+        {
+
+            var user = _context.AplicationUsers.FirstOrDefault(c => c.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(ApplicationUser userApplication)
+        {
+            if(ModelState.IsValid)
+            {
+                var user =  _context.AplicationUsers.FirstOrDefault(c => c.Id == userApplication.Id);
+                if (user ==null)
+                {
+                    return NotFound();
+                }
+                if (userApplication.Id != user.Id)
+                {
+                    return NotFound();
+                }
+                if (userApplication == null)
+                {
+                    return NotFound();
+                }
+
+
+                var userResult = await _userManager.DeleteAsync(user);
+                if(userResult.Succeeded)
+                {
+                    TempData["Delete"] = "User has been Deleted Successfully";
+                    return RedirectToAction(nameof(Index));
+                }
+                foreach (var error in userResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+
+            }
+            
+            return View();
         }
     }
 }
