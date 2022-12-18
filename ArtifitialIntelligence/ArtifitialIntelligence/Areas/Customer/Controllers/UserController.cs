@@ -52,5 +52,48 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             
             return View();
         }
+
+
+        public async Task<IActionResult> Edit(string id)
+        {
+            var user = _context.AplicationUsers.FirstOrDefault(c => c.Id == id);
+            if(user==null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(ApplicationUser userAppication)
+        {
+            var user = _context.AplicationUsers.FirstOrDefault(c => c.Id == userAppication.Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            if(userAppication == null)
+            {
+                return NotFound();
+            }
+            if(user.Id != userAppication.Id)
+            {
+                return NotFound();
+            }
+            user.FirstName = userAppication.FirstName;
+            user.MiddleName = userAppication.MiddleName;
+            user.LastName= userAppication.LastName;
+           var resultUSer= await _userManager.UpdateAsync(user);
+            if(resultUSer.Succeeded)
+            {
+                TempData["Update"] = "User Data Has been Updated";
+                return RedirectToAction(nameof(Index));
+            }
+            foreach(var error in resultUSer.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(user);
+        }
     }
 }

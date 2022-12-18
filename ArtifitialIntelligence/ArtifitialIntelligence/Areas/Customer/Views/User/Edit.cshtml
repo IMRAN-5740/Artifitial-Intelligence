@@ -1,23 +1,23 @@
 ﻿@using ArtifitialIntelligence.Models;
 @model ApplicationUser
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 <br />
-<h2 class="text-info">Registration Form</h2>
+<h2 class="text-info">User Registration Update Form</h2>
 
-<form asp-action="Create" method="post"  id="user-form" enctype="multipart/form-data">
+<form asp-action="Edit" method="post" id="user-form" enctype="multipart/form-data">
     <div class="p-4 rounded border">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+        <input  type="hidden" asp-for="Id" value="@Model.Id"/>
         <h4>@ViewBag.message</h4>
         <div class="form-group row">
             <div class="col-2">
                 <label asp-for="UserName"></label>
             </div>
             <div class="col-5">
-                <input asp-for="UserName"  class="form-control" />
+                <input asp-for="UserName" class="form-control"  readonly="readonly"/>
 
             </div>
             <span asp-validation-for="UserName" class="text-danger"></span>
@@ -28,18 +28,18 @@
                 <label asp-for="FirstName"></label>
             </div>
             <div class="col-5">
-                <input asp-for="FirstName"  class="form-control" />
+                <input asp-for="FirstName" class="form-control" />
 
             </div>
             <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
 
-         <div class="form-group row">
+        <div class="form-group row">
             <div class="col-2">
                 <label asp-for="MiddleName"></label>
             </div>
             <div class="col-5">
-                <input asp-for="MiddleName" placeholder="optional field" class="form-control" />
+                <input asp-for="MiddleName" class="form-control" />
 
             </div>
             <span asp-validation-for="MiddleName" class="text-danger"></span>
@@ -50,7 +50,7 @@
                 <label asp-for="LastName"></label>
             </div>
             <div class="col-5">
-                <input asp-for="LastName"  class="form-control" />
+                <input asp-for="LastName" class="form-control" />
 
             </div>
             <span asp-validation-for="LastName" class="text-danger"></span>
@@ -61,22 +61,10 @@
                 <label asp-for="Email"></label>
             </div>
             <div class="col-5">
-                <input asp-for="Email"  class="form-control" type="email" />
+                <input asp-for="Email" class="form-control"readonly="readonly"  />
 
             </div>
             <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="PasswordHash"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="PasswordHash"  class="form-control" type="password" />
-
-
-            </div>
-            <span asp-validation-for="PasswordHash" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -84,12 +72,12 @@
                 <label asp-for="PhoneNumber"></label>
             </div>
             <div class="col-5">
-                <input asp-for="PhoneNumber"  placeholder="Mobile Number" class="form-control" type="number" />
+                <input asp-for="PhoneNumber" placeholder="Mobile Number" class="form-control" type="number" />
             </div>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Sign Up" />
+            <input type="submit" class="btn btn-primary" value="Update Data" />
             <a asp-action="Index" class="btn btn-success">Back to List</a>
         </div>
     </div>
@@ -97,51 +85,51 @@
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
-        }
+    }
 
     <script>
-$(document).ready(function(){
-$("#user-form").validate({
- rules:{
-UserName:{
-    required:true,
- 
-},
-FirstName: {
-    required: true,
+        $(document).ready(function () {
+            $("#user-form").validate({
+                rules: {
+                    UserName: {
+                        required: true,
 
-},
-LastName: {
-    required: true,
+                    },
+                    FirstName: {
+                        required: true,
 
-},
-Email: {
-    required: true,
+                    },
+                    LastName: {
+                        required: true,
 
-},
-PasswordHash: {
-    required: true,
+                    },
+                    Email: {
+                        required: true,
 
-},
-PhoneNumber: {
-    required: true,
+                    },
+                    PasswordHash: {
+                        required: true,
 
-}
+                    },
+                    PhoneNumber: {
+                        required: true,
 
- },
-    messages:
-    {
-        UserName:"Enter your User Name",
-        FirstName:"Enter your First Name",
-        Lastname:"Enter your Last Name",
-        Email:"Please Enter your Email",
-        PasswordHash:"Please Enter Valid Password",
-        PhoneNumber:"Enter your Phone Number"
-    }
-   });
-});
+                    }
+
+                },
+                messages:
+                {
+                    UserName: "Enter your User Name",
+                    FirstName: "Enter your First Name",
+                    Lastname: "Enter your Last Name",
+                    Email: "Please Enter your Email",
+                    PasswordHash: "Please Enter Valid Password",
+                    PhoneNumber: "Enter your Phone Number"
+                }
+            });
+        });
     </script>
-    
+
     }
 
 
