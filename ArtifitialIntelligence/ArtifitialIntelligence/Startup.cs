@@ -36,6 +36,8 @@ namespace ArtifitialIntelligence
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddMvc();
+
             services.AddControllers(options => options.EnableEndpointRouting = false);
             services.AddSession(options =>
             {
@@ -69,6 +71,8 @@ namespace ArtifitialIntelligence
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
+           
+
 
             app.UseEndpoints(endpoints =>
             {
