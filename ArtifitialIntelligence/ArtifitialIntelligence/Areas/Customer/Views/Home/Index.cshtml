@@ -1,7 +1,8 @@
 ﻿@using ArtifitialIntelligence.Models;
 @using X.PagedList.Mvc.Core
-@model X.PagedList.IPagedList<Company>
+@*@model X.PagedList.IPagedList<Company>*@
 
+@model IEnumerable<Company>
 @*@using System.Net.Http
 
 @using Microsoft.AspNetCore.Http
@@ -74,5 +75,6 @@
 
 
 <div>
-    @Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))
+    @*@Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))*@
+ 
 </div>

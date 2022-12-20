@@ -28,7 +28,7 @@ namespace ArtifitialIntelligence.Controllers
 
         public IActionResult Index( int? page)
         {
-            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList().ToPagedList(page??1,3);
+            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList()/*.ToPagedList(page??1,3)*/;
             _context.Companies.AddRange(mySortedList.ToArray());
            // var companies=_context.Companies.ToList();
             return View(mySortedList);
