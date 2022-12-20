@@ -99,5 +99,25 @@
         })
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+            var done = '@TempData["lock"]'
+            if (done != '') {
+                alertify.error(done);
+
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var done = '@TempData["lockEdit"]'
+            if (done != '') {
+                alertify.error(done);
+
+            }
+        })
+    </script>
+
+
 }
 

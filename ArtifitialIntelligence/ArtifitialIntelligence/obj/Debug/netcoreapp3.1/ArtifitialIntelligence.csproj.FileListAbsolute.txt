@@ -224,3 +224,5 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Deb
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Edit.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Details.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Delete.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Active.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\LockOut.cshtml.g.cs

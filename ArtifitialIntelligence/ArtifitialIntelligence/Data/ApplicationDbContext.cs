@@ -13,6 +13,6 @@ namespace ArtifitialIntelligence.Data
         {
         }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<ApplicationUser> AplicationUsers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
