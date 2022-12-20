@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css" type="text/css" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Trirong'>
  
     <link rel="stylesheet" href="~/css/site.css" />
    
@@ -44,11 +45,18 @@
         color:red
     }
 </style>
+
+<style>
+    body {
+        font-family: 'Trirong';
+        font-size: 22px;
+    }
+</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Artifitial Intelligence</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:red;font-weight:bold; font-size:30px" >  Artifitial Intelligence</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,16 +65,22 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index">Companies</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index" > Companies</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index" >Users</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Index"> Roles</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                      
 
                         @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index"></a>
