@@ -39,6 +39,11 @@ namespace ArtifitialIntelligence
             services.AddMvc();
 
             services.AddControllers(options => options.EnableEndpointRouting = false);
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/Identity/Account/Login";
+            });
             services.AddSession(options =>
             {
                 //options.Cookie.Name = ".AdventureWorks.Session";

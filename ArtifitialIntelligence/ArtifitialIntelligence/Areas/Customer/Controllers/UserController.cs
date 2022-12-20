@@ -42,6 +42,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 var userResult = await _userManager.CreateAsync(user, user.PasswordHash);
                 if (userResult.Succeeded)
                 {
+                    var isSaveRole = await _userManager.AddToRoleAsync(user, "Client");
                     TempData["Save"] = "Registration Successfull";
                     return RedirectToAction(nameof(Index));
                 }

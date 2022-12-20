@@ -16,6 +16,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace ArtifitialIntelligence.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
 
     public class CompaniesController : Controller
     {
@@ -48,6 +49,7 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
 
         // Create Get Method
         [HttpGet]
+     
         public IActionResult Create()
         {
             return View();

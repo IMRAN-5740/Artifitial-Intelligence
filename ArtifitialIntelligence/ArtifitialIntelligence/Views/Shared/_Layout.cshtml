@@ -3,6 +3,7 @@
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     int count = 0;
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("roleName");
     List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
     if (companies == null)
     {
@@ -64,24 +65,47 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index" > Companies</a>
+                        @if(userRole=="Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index"> Companies</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="User" asp-action="Index">Users</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Index"> Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="AssignUserRole"> Assign</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        }
+
+                        else if (userRole == "Client")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Companies" asp-action="Index"> Companies</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        }
+                      @*  <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Companies" asp-action="Index" > Companies</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index" >Users</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="Index"> Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Role" asp-action="AssignUserRole"> Assign</a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        </li>*@
 
                         @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Companies" asp-action="Index"></a>

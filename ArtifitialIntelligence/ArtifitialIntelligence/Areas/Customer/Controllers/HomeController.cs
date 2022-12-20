@@ -11,10 +11,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection.Emit;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ArtifitialIntelligence.Controllers
 {
     [Area("Customer")]
+    
     public class HomeController : Controller
     {
 
@@ -36,6 +38,7 @@ namespace ArtifitialIntelligence.Controllers
         //Post Index Method
         [HttpPost]
         [ActionName("Index")]
+        [Authorize]
      public IActionResult CompanyIndex(int? id)
         {
 
