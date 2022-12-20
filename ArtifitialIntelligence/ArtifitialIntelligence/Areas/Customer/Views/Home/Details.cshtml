@@ -25,6 +25,8 @@
         border-color: aqua;
     }
 </style>
+
+
 <h2 class="text-info">Company Details</h2>
 <form asp-action="Details" method="post" enctype="multipart/form-data">
     <div class="p-4 rounded border row">
@@ -123,6 +125,16 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
     }
-    }
-
+    
+ 
+}
+@section head
+{
+    <style type="text/css">
+        body {
+            background-image: url('images/artificial-intelligence.png');
+            margin: 0;
+        }
+    </style>
+}
 

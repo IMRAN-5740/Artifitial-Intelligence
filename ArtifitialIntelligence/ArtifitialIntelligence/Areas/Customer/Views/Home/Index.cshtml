@@ -33,10 +33,30 @@
         font-weight: bold;
     }
 </style>
+
+   @* <style type="text/css">
+        body {
+            background-image: url('~/images/artificial-intelligence.png');
+            margin: 0;
+        }
+    </style>*@
+@*<div style="background-image: url('~/images/artificial-intelligence.png');"></div>*@
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url('images/artificial-intelligence.png');
+            margin: 0;
+        }
+    </style>
+}
+
 <div class="row">
+    
+
     @foreach (var data in Model)
     {
-        <div class="col-4">
+        <div class="col-6">
             <div class="card-mb-4">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">
