@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "AssignUserRole";
+    int serialNo = 1;
+}
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Assign User Role  Information</h2>
+    </div>
+   @* <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus"></i>&nbsp; Add New Role</a>
+    </div>*@
+</div>
+<br />
+<style>
+    .table-info th {
+        text-align: center;
+        font-family: "Trirong",serif;
+    }
+</style>
+
+
+<div>
+    <table class="table table-bordered">
+        <tr class="table-info">
+            <th>Serial No</th>
+           @* <th>User ID</th>
+            <th>Role ID</th>*@
+            <th>User Name</th> 
+            <th>Role Name</th>
+            @*<th>Action</th>*@
+
+        </tr>
+        @foreach (var data in ViewBag.UserRoles)
+        {
+            <tr>
+                <td>@(serialNo++)</td>
+                @*<td>@data.UserId</td>
+                <td>@data.RoleId</td>*@
+                <td>@data.UserName</td>
+                <td>@data.RoleName</td>
+               @* <td>
+                    <div class="btn-group">
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@data.Id"><i class="far fa-edit"></i></a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@data.Id"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </td>*@
+
+
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+            var save = '@TempData["save"]'
+            if (save != '') {
+                alertify.success(save);
+            }
+        })
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var edit = '@TempData["edit"]'
+            if (edit != '') {
+                alertify.success(edit);
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var lock = '@TempData["lock"]'
+            if (lock != '') {
+                alertify.error(lock);
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var lockEdit = '@TempData["lockEdit"]'
+            if (lockEdit != '') {
+                alertify.success(lockEdit);
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var done = '@TempData["done"]'
+            if (done != '') {
+                alertify.error(done);
+            }
+        })
+    </script>
+
+}

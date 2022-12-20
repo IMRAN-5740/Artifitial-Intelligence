@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+<br />
+<h2 class="text-info">Role Updatation Form</h2>
+
+<form asp-action="Edit" name="registration" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border">
+        <h4 style="color:red">@ViewBag.mgs</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" value="@ViewBag.id" name="id" />
+        <div class="form-group row">
+            <div class="col-2">
+                <label>Role Name</label>
+            </div>
+           
+            <div class="col-5">
+
+                <input id="name" name="name" class="form-control" value="@ViewBag.name" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    </div>
+</form>
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+    <script>
+
+
+        $(function () {
+
+            $("form[name='registration']").validate({
+
+                rules: {
+                    name: "required",
+                },
+
+                messages: {
+                    name: "Please enter your RoleName"
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+}
+
+
