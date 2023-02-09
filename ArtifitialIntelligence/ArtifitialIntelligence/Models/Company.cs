@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace ArtifitialIntelligence.Models
@@ -21,5 +22,6 @@ namespace ArtifitialIntelligence.Models
         public int Like { get; set; }
         [Display(Name="Like")]  
         public bool CanIncreaseLike { get; set; }
+        public List<Products> ListOfProducts { get; set; }
     }
 }

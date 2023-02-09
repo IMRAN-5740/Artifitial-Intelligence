@@ -4,49 +4,22 @@ using ArtifitialIntelligence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ArtifitialIntelligence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230209035221_ProductRelatedAllTableAdded")]
+    partial class ProductRelatedAllTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("ArtifitialIntelligence.Models.Comment", b =>
-                {
-                    b.Property<int>("CommentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CommentDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CommentedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("GuestId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.HasKey("CommentId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Comments");
-                });
 
             modelBuilder.Entity("ArtifitialIntelligence.Models.Company", b =>
                 {
@@ -159,9 +132,6 @@ namespace ArtifitialIntelligence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -186,8 +156,6 @@ namespace ArtifitialIntelligence.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
 
                     b.HasIndex("ProductTypeId");
 
@@ -430,15 +398,6 @@ namespace ArtifitialIntelligence.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("ArtifitialIntelligence.Models.Comment", b =>
-                {
-                    b.HasOne("ArtifitialIntelligence.Models.Products", "Products")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ArtifitialIntelligence.Models.OrderDetails", b =>
                 {
                     b.HasOne("ArtifitialIntelligence.Models.Order", "Order")
@@ -456,12 +415,6 @@ namespace ArtifitialIntelligence.Migrations
 
             modelBuilder.Entity("ArtifitialIntelligence.Models.Products", b =>
                 {
-                    b.HasOne("ArtifitialIntelligence.Models.Company", "Companies")
-                        .WithMany("ListOfProducts")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ArtifitialIntelligence.Models.ProductTypes", "ProductTypes")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")

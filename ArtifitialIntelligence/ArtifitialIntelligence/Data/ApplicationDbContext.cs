@@ -13,6 +13,12 @@ namespace ArtifitialIntelligence.Data
         {
         }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<ProductTypes> ProductTypes { get; set; }
+        public DbSet<SpecialTag> SpecialTag { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

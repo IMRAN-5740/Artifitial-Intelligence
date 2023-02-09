@@ -9,6 +9,7 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Rel
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\microsoft.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\No-Image.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\NVDIA.png
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\Oracle-Corporation.jpg
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

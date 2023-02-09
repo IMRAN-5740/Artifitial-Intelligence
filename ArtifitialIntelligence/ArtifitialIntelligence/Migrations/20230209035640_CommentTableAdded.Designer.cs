@@ -4,14 +4,16 @@ using ArtifitialIntelligence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ArtifitialIntelligence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230209035640_CommentTableAdded")]
+    partial class CommentTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,9 +161,6 @@ namespace ArtifitialIntelligence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -186,8 +185,6 @@ namespace ArtifitialIntelligence.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
 
                     b.HasIndex("ProductTypeId");
 
@@ -456,12 +453,6 @@ namespace ArtifitialIntelligence.Migrations
 
             modelBuilder.Entity("ArtifitialIntelligence.Models.Products", b =>
                 {
-                    b.HasOne("ArtifitialIntelligence.Models.Company", "Companies")
-                        .WithMany("ListOfProducts")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ArtifitialIntelligence.Models.ProductTypes", "ProductTypes")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")
