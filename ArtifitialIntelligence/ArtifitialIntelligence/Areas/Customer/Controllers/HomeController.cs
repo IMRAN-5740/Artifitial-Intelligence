@@ -190,9 +190,55 @@ namespace ArtifitialIntelligence.Controllers
             _context.Comments.Add(listComment);
             _context.SaveChanges();
 
+            return RedirectToAction(nameof(ProductIndex),productId);
+            //return View();
+        }
+        //Get Cart Remove Method
+
+        [ActionName("Remove")]
+        public IActionResult RemoveFromCart(int? id)
+        {
+            List<Products> products = new List<Products>();
+            products = HttpContext.Session.Get<List<Products>>("products");
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    products.Remove(product);
+                    HttpContext.Session.Set("products", products);
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        public IActionResult Remove(int? id)
+        {
+            List<Products> products = new List<Products>();
+            products = HttpContext.Session.Get<List<Products>>("products");
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    products.Remove(product);
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Get Product Cart Action Method
+        public IActionResult Cart()
+        {
+            List<Products> products = HttpContext.Session.Get<List<Products>>("products");
+            if (products == null)
+            {
+                products = new List<Products>();
+            }
+            return View(products);
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -251,3 +251,6 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Rel
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Areas\Customer\Views\Home\ProductDetails.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Areas\Customer\Views\Home\ShowComment.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Views\Shared\_CommentPartial.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Cart.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Areas\Customer\Views\Order\CheckOut.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Index.cshtml.g.cs

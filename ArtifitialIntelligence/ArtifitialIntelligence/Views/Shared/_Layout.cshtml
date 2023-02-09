@@ -2,14 +2,14 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @{
-    int count = 0;
+   // int count = 0;
     var userRole = HttpContextAccessor.HttpContext.Session.GetString("roleName");
     List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
     if (companies == null)
     {
         companies = new List<Company>();
     }
-    count = companies.Count();
+    // count = companies.Count();
 }
 @*@{
     int sumValue = 0;
@@ -21,6 +21,18 @@
     sumValue = aCompany.Like;
 }
 *@
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    int count = 0;
+    List<Products> products = HttpContextAccessor.HttpContext.Session.Get<List<Products>>("products");
+
+    if (products == null)
+    {
+        products = new List<Products>();
+    }
+    count = products.Count;
+
+}
 
 
 
@@ -81,9 +93,31 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="SpecialTag" asp-action="Index"> Special Tag</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="Index">Order List</a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
+                                    Cart
+                                    <i class="fas fa-shopping-cart"></i>
+                                    (@count)
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="CheckOut">
+
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="Index">Order List</a>
                             </li>
                         }
 
@@ -99,6 +133,24 @@
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
+                                    Cart
+                                    <i class="fas fa-shopping-cart"></i>
+                                    (@count)
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="CheckOut">
+
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="Index">Order List</a>
                             </li>
                         }
                       @*  <li class="nav-item">

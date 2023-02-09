@@ -1,0 +1,63 @@
+﻿@using ArtifitialIntelligence.Models
+@model List<Products>
+@{
+    ViewData["Title"] = "Cart";
+}
+<style>
+    .table-info{
+        text-align: center;
+        font-family:"Trirong",serif;
+    }
+    
+</style>
+
+<h4>Your Cart</h4>
+<br /> 
+<div class="row">
+    <table class="table table-bordered ">
+        <thead class="table-info ">
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Type</th>
+                <th>Product Color</th>
+                <th>Action</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var data in Model)
+            {
+            <tr>
+                    <td>
+                        <img src="~/@data.Image" width="200px" height="150px"/> 
+                     </td>  
+                <td>@data.Name</td>
+                <td>@data.Price</td>
+                <td>@data.ProductTypes.ProductType</td>
+                <td>@data.ProductColor</td>
+                <td>
+                    <a asp-area="Customer" asp-action="Remove" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+            }
+            
+
+        </tbody>
+        
+
+    </table>
+</div>
+<div class="row">
+    <div class="col-6">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-success">Back To Home</a>
+    </div>
+    <div class="col-6 text-right">
+        <h4>Total Amount</h4>
+        <h4>Grant Total :@Model.Sum(c=>c.Price)</h4>
+        <a asp-area="Customer" asp-action="CheckOut" asp-controller="Order" class="btn btn-info">Process to Checkout</a>
+    </div>
+</div>
