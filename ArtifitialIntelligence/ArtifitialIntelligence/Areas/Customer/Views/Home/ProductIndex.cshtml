@@ -1,0 +1,48 @@
+﻿@using ArtifitialIntelligence.Models;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Products>
+
+@{
+    ViewData["Title"] = "Product Page";
+}
+<br />
+<br />
+<style>
+    .ok {
+        color: blue;
+        font-size: 23px;
+    }
+
+    .ok1 {
+        font-size: 20px;
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<div class="row">
+    @foreach (var data in Model)
+    {
+        <div class="col-4">
+            <div class="card-mb-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label class="ok">@data.Name</label>
+                    </h4>
+                </div>
+                <img src="~/@data.Image" alt="Card-Image" class="card-img-top" style="height:300px;" />
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <label class="ok1">Price : @data.Price</label>
+                        </div>
+                        <a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary  pull-right btn-outline-info"> Details</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div>
+   @* @Html.PagedListPager(Model,c=>Href("~/Customer/Home/ProductIndex?page="+c),X.PagedList.Web.Common.PagedListRenderOptions.MinimalWithItemCountText)*@
+</div>

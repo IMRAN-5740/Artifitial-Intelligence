@@ -1,0 +1,9 @@
+Check Companies
+https://localhost:5001/Admin/Companies
+Check Assign User Role
+https://localhost:5001/Admin/Role/AssignUserRole
+
+Check Role
+https://localhost:5001/Admin/Role
+Check User
+https://localhost:5001/Customer/User
