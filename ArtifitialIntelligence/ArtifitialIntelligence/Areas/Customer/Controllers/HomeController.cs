@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Reflection.Emit;
 using X.PagedList;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ArtifitialIntelligence.Controllers
 {
@@ -110,6 +112,87 @@ namespace ArtifitialIntelligence.Controllers
             //return View(product);
             return RedirectToAction(nameof(Index));
         }
+
+        public ActionResult ProductIndex(int productId)
+        {
+            List<Products> listOfProduct = new List<Products>();
+            listOfProduct = (from comment in _context.Products
+                             where comment.CompanyId == productId
+                             select new Products()
+                             {
+                                // ArticleId = comment.ArticleId,
+                                // CommentId = comment.CommentId,
+                                // CommentDescription = comment.CommentDescription,
+                                 //Rating = comment.Rating,
+                                /// CommmentedOn = comment.CommentedOn
+                                 
+                                 Id=comment.CompanyId,
+                                 CompanyId=comment.Id,
+                                 Name = comment.Name,
+                                 Price = comment.Price,
+                                 Image=comment.Image,
+                                 ProductColor=comment.ProductColor,
+                                 IsAvailable=comment.IsAvailable,
+                                 SpecialTag=comment.SpecialTag,
+                                 ProductTypeId=comment.ProductTypeId,
+
+                             }).ToList();
+            ViewBag.Id = productId;
+            return View(listOfProduct);
+            
+        }
+        [HttpGet]
+        public ActionResult ProductDetails(int? productId)
+        {
+            ViewData["companyId"] = new SelectList(_context.Companies.ToList(), "Id", "CompanyName");
+            ViewData["productTypeId"] = new SelectList(_context.ProductTypes.ToList(), "Id", "ProductType");
+            ViewData["specialTagId"] = new SelectList(_context.SpecialTag.ToList(), "Id", "SpecialTagName");
+            if (productId == null)
+            {
+                return NotFound();
+            }
+            var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).FirstOrDefault(c => c.CompanyId == productId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        public ActionResult ShowComment(int productId)
+        {
+            List<Comment> listOfComment = new List<Comment>();
+            listOfComment = (from comment in _context.Comments
+                             where comment.ProductId== productId
+                             select new Comment()
+                             {
+                                 ProductId = comment.ProductId,
+                                 CommentId = comment.CommentId,
+                                 CommentDescription = comment.CommentDescription,
+                                 Rating = comment.Rating,
+                                 CommentedOn = comment.CommentedOn
+
+                             }).ToList();
+            ViewBag.ProductId = productId;
+            return View(listOfComment);
+        }
+
+        [HttpPost]
+        public ActionResult AddComment(int productId, int rating, string productComment)
+        {
+            Comment listComment = new Comment();
+            listComment.ProductId = productId;
+            listComment.Rating = rating;
+            listComment.CommentDescription = productComment;
+            listComment.CommentedOn = DateTime.Now;
+            listComment.Rating = rating;
+            listComment.GuestId = Guid.NewGuid();
+            _context.Comments.Add(listComment);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult Privacy()
         {
             return View();

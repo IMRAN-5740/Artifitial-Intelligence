@@ -103,6 +103,7 @@
             <div class="form-group">
                 
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
+                <td>@Html.ActionLink("SeeAllProduct", "ProductIndex", new {productId=Model.Id})</td>
             </div>
         </div>
         <div class="col-1"></div>
@@ -139,18 +140,24 @@
 }
 
 
+
+
+
+@*
 @inject IHttpContextAccessor HttpContextAccessor
 @{
 
     List<Products> products = HttpContextAccessor.HttpContext.Session.Get<List<Products>>("products");
+    
     Products product = null;
     if (products != null)
     {
-        product = products.FirstOrDefault(c => c.Id == Model.Id);
+        product = products.FirstOrDefault(c => c.Id == product.CompanyId);
+        products.Add(product);
     }   
 }
     <div class="row">
-    @foreach (var data in product.Companies.ListOfProducts)
+    @foreach (var data in products)
     {
         <div class="col-4">
             <div class="card-mb-4">
@@ -174,3 +181,6 @@
     }
 </div>
 
+
+
+*@

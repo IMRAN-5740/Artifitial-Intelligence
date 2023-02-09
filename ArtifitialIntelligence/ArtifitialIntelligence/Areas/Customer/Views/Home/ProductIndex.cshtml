@@ -1,6 +1,6 @@
-﻿@using ArtifitialIntelligence.Models;
-@using X.PagedList.Mvc.Core
-@model X.PagedList.IPagedList<Products>
+﻿@*@using ArtifitialIntelligence.Models;*@
+@model IEnumerable<ArtifitialIntelligence.Models.Products>
+
 
 @{
     ViewData["Title"] = "Product Page";
@@ -35,8 +35,8 @@
                         <div class="btn-group">
                             <label class="ok1">Price : @data.Price</label>
                         </div>
-                        <a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary  pull-right btn-outline-info"> Details</a>
-
+                        @*<a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary  pull-right btn-outline-info"> Details</a>*@
+                        <td>@Html.ActionLink("Details", "ProductDetails", new {productId=@data.Id})</td>
                     </div>
                 </div>
             </div>

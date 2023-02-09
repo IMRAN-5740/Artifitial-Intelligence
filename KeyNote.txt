@@ -1,3 +1,8 @@
+
+
+
+
+
 Check Companies
 https://localhost:5001/Admin/Companies
 Check Assign User Role
@@ -7,3 +12,7 @@ Check Role
 https://localhost:5001/Admin/Role
 Check User
 https://localhost:5001/Customer/User
+
+
+
+https://localhost:5001/Customer/Home/ShowProduct?productId=8

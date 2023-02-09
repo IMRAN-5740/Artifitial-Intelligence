@@ -1,7 +1,7 @@
 ﻿@using ArtifitialIntelligence.Models;
 @model Products
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Product Details";
 }
 <br />
 
@@ -12,18 +12,21 @@
         border-color: aqua;
     }
 </style>
-<h2 class="text-info">Product Delete</h2>
-<form asp-action="Delete" method="post" enctype="multipart/form-data">
+<h2 class="text-info">Edit Product</h2>
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <div class="p-4 rounded border row">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <div class="col-8">
+
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Name"></label>
                 </div>
                 <div class="col-8">
                     <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Image" />
                     <input asp-for="Name" readonly="readonly" class="form-control" />
 
                 </div>
@@ -100,12 +103,13 @@
                 <span asp-validation-for="SpecialTagId" class="text-danger"></span>
             </div>
 
+
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="IsAvailable"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />Available
+                    <input asp-for="IsAvailable" class="" disabled="disabled" type="checkbox" />Available
                     @* <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable*@
 
                 </div>
@@ -113,14 +117,24 @@
             </div>
 
             <div class="form-group">
-                <h5>Do you Want to Delete this Product?</h5>
-                <input type="submit" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" value="Delete"/>
+                @*<input type="submit" class="btn btn-primary" value="Update" />*@
+                <td>@Html.ActionLink("Rating/ReviewProduct", "ShowComment", new {productId=Model.Id})</td>
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
             </div>
+
+
         </div>
         <div class="col-1"></div>
         <div class="col-3">
             <img src="~/@Model.Image" width="100%" />
+            @if (Model.IsAvailable)
+            {
+                <img src="~/ProductImages/in-stock.jpg" width="100%" height="70px" />
+            }
+            else
+            {
+                <img src="~/ProductImages/out-of-stock.jpg" width="100%" height="70px" />
+            }
         </div>
 
 

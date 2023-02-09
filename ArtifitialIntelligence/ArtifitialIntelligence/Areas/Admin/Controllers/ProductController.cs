@@ -154,7 +154,10 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Details(int ?id)
         {
-            if(id == null)
+            ViewData["companyId"] = new SelectList(_context.Companies.ToList(), "Id", "CompanyName");
+            ViewData["productTypeId"] = new SelectList(_context.ProductTypes.ToList(), "Id", "ProductType");
+            ViewData["specialTagId"] = new SelectList(_context.SpecialTag.ToList(), "Id", "SpecialTagName");
+            if (id == null)
             {
                 return NotFound();
             }
@@ -170,7 +173,10 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Delete(int ?id )
         {
-            if(id==null)
+            ViewData["companyId"] = new SelectList(_context.Companies.ToList(), "Id", "CompanyName");
+            ViewData["productTypeId"] = new SelectList(_context.ProductTypes.ToList(), "Id", "ProductType");
+            ViewData["specialTagId"] = new SelectList(_context.SpecialTag.ToList(), "Id", "SpecialTagName");
+            if (id==null)
             {
                 return NotFound();
             }
