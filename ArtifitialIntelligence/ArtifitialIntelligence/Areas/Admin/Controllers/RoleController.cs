@@ -1,5 +1,6 @@
 ﻿using ArtifitialIntelligence.Areas.Admin.Models;
 using ArtifitialIntelligence.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace ArtifitialIntelligence.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class RoleController : Controller
     {
 

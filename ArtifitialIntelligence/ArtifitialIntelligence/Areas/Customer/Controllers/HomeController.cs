@@ -66,8 +66,8 @@ namespace ArtifitialIntelligence.Controllers
             //  _context.Companies.Add(company);
             var companies = _context.Companies.ToList();
             _context.SaveChangesAsync();
-            return View(companies);
-            // return RedirectToAction(nameof(Index));
+           // return View(companies);
+            return RedirectToAction(nameof(Index));
         }
 
 
@@ -158,6 +158,7 @@ namespace ArtifitialIntelligence.Controllers
 
         //Post Product Details Action in Session Method
         [HttpPost]
+        [Authorize]
         [ActionName("ProductDetails")]
         public ActionResult ProductDetailsWithCart(int? id)
         {
@@ -200,6 +201,7 @@ namespace ArtifitialIntelligence.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AddComment(int id, int rating, string productComment)
         {
             Comment listComment = new Comment();

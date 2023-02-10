@@ -1,5 +1,6 @@
 ﻿using ArtifitialIntelligence.Data;
 using ArtifitialIntelligence.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
 {
     [Area("Customer")]
+    [Authorize]
+
     public class UserController : Controller
     {
 

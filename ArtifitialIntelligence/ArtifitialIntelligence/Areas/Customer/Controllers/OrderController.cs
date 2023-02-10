@@ -1,6 +1,7 @@
 ﻿using ArtifitialIntelligence.Data;
 using ArtifitialIntelligence.Models;
 using ArtifitialIntelligence.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ using X.PagedList;
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
 {
     [Area("Customer")]
+    [Authorize]
     public class OrderController : Controller
     {
         ApplicationDbContext _context;
