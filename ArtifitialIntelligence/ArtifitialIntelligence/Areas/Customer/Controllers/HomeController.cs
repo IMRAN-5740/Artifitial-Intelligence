@@ -113,45 +113,41 @@ namespace ArtifitialIntelligence.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult ProductIndex(int productId)
+        public ActionResult ProductIndex(int? id)
         {
             List<Products> listOfProduct = new List<Products>();
-            listOfProduct = (from comment in _context.Products
-                             where comment.CompanyId == productId
+            listOfProduct = (from pro in _context.Products
+                             where pro.CompanyId == id
                              select new Products()
                              {
-                                // ArticleId = comment.ArticleId,
-                                // CommentId = comment.CommentId,
-                                // CommentDescription = comment.CommentDescription,
-                                 //Rating = comment.Rating,
-                                /// CommmentedOn = comment.CommentedOn
+                               
                                  
-                                 Id=comment.CompanyId,
-                                 CompanyId=comment.Id,
-                                 Name = comment.Name,
-                                 Price = comment.Price,
-                                 Image=comment.Image,
-                                 ProductColor=comment.ProductColor,
-                                 IsAvailable=comment.IsAvailable,
-                                 SpecialTag=comment.SpecialTag,
-                                 ProductTypeId=comment.ProductTypeId,
+                                 Id= pro.Id,
+                                 CompanyId= pro.CompanyId,
+                                 Name = pro.Name,
+                                 Price = pro.Price,
+                                 Image= pro.Image,
+                                 ProductColor= pro.ProductColor,
+                                 IsAvailable= pro.IsAvailable,
+                                 SpecialTag= pro.SpecialTag,
+                                 ProductTypeId= pro.ProductTypeId,
 
                              }).ToList();
-            ViewBag.Id = productId;
+            ViewBag.Id = id;
             return View(listOfProduct);
             
         }
         [HttpGet]
-        public ActionResult ProductDetails(int? productId)
+        public ActionResult ProductDetails(int? id)
         {
             ViewData["companyId"] = new SelectList(_context.Companies.ToList(), "Id", "CompanyName");
             ViewData["productTypeId"] = new SelectList(_context.ProductTypes.ToList(), "Id", "ProductType");
             ViewData["specialTagId"] = new SelectList(_context.SpecialTag.ToList(), "Id", "SpecialTagName");
-            if (productId == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).FirstOrDefault(c => c.CompanyId == productId);
+            var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).FirstOrDefault(c => c.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -159,11 +155,37 @@ namespace ArtifitialIntelligence.Controllers
             return View(product);
         }
 
-        public ActionResult ShowComment(int productId)
+
+        //Post Product Details Action in Session Method
+        [HttpPost]
+        [ActionName("ProductDetails")]
+        public ActionResult ProductDetailsWithCart(int? id)
+        {
+            List<Products> products = new List<Products>();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var product = _context.Products.Include(c => c.ProductTypes).FirstOrDefault(c => c.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            products = HttpContext.Session.Get<List<Products>>("products");
+            if (products == null)
+            {
+                products = new List<Products>();
+            }
+            products.Add(product);
+            HttpContext.Session.Set("products", products);
+            //return View(product);
+            return RedirectToAction("ProductIndex",new {id=product.CompanyId});
+        }
+        public ActionResult ShowComment(int? id)
         {
             List<Comment> listOfComment = new List<Comment>();
             listOfComment = (from comment in _context.Comments
-                             where comment.ProductId== productId
+                             where comment.ProductId== id
                              select new Comment()
                              {
                                  ProductId = comment.ProductId,
@@ -173,15 +195,15 @@ namespace ArtifitialIntelligence.Controllers
                                  CommentedOn = comment.CommentedOn
 
                              }).ToList();
-            ViewBag.ProductId = productId;
+            ViewBag.ProductId = id;
             return View(listOfComment);
         }
 
         [HttpPost]
-        public ActionResult AddComment(int productId, int rating, string productComment)
+        public ActionResult AddComment(int id, int rating, string productComment)
         {
             Comment listComment = new Comment();
-            listComment.ProductId = productId;
+            listComment.ProductId = id;
             listComment.Rating = rating;
             listComment.CommentDescription = productComment;
             listComment.CommentedOn = DateTime.Now;
@@ -190,8 +212,9 @@ namespace ArtifitialIntelligence.Controllers
             _context.Comments.Add(listComment);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(ProductIndex),productId);
-            //return View();
+            return RedirectToAction("ShowComment", new { id = id });
+
+            // return View();
         }
         //Get Cart Remove Method
 

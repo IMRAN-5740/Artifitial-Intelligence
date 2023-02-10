@@ -6,6 +6,17 @@
     ViewData["Title"] = "Product Page";
 }
 <br />
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Product List</h2>
+    </div>
+    <div class="col-6 text-right">
+      
+        <a asp-action="Index" class="btn btn-success"> <i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp; Back to Companies</a>
+    </div>
+</div>
 <br />
 <style>
     .ok {
@@ -18,6 +29,9 @@
         color: red;
         font-weight: bold;
     }
+  
+
+   
 </style>
 <div class="row">
     @foreach (var data in Model)
@@ -35,8 +49,8 @@
                         <div class="btn-group">
                             <label class="ok1">Price : @data.Price</label>
                         </div>
-                        @*<a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary  pull-right btn-outline-info"> Details</a>*@
-                        <td>@Html.ActionLink("Details", "ProductDetails", new {productId=@data.Id})</td>
+                        <a asp-action="ProductDetails" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary  pull-right btn-outline-info"><i class="fa-sharp fa-solid fa-eye"></i>&nbsp; Details</a>
+                       @* <td>@Html.ActionLink("Details", "ProductDetails", new {productId=@data.Id})</td>*@
                     </div>
                 </div>
             </div>
