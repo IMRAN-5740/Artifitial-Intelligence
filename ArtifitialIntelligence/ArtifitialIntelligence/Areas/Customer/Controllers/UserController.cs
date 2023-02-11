@@ -25,19 +25,20 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             _userManager = userManager;
             _context=context;
         }
-
+       
         public IActionResult Index()
         {
             var allUsers = _context.ApplicationUsers.ToList();
             return View(allUsers);
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Create()
         {
 
             return View();
         }
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Create(ApplicationUser user)
         {
             if(ModelState.IsValid)
