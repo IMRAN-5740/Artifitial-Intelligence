@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
 {
-    [Area("Customer")]
+   
     [Authorize]
 
     public class UserController : Controller
@@ -25,13 +25,14 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             _userManager = userManager;
             _context=context;
         }
-       
+        [Area("Admin")]
         public IActionResult Index()
         {
             var allUsers = _context.ApplicationUsers.ToList();
             return View(allUsers);
         }
         [AllowAnonymous]
+        [Area("Customer")]
         public async Task<IActionResult> Create()
         {
 
@@ -56,7 +57,8 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 }
             }
             
-            return View();
+         //   return View();
+            return RedirectToAction(nameof(Create));
         }
 
 
@@ -102,7 +104,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(user);
         }
 
-
+        [Area("Admin")]
         public async Task<IActionResult> Details(string id)
         {
             var user = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
@@ -113,7 +115,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(user);
         }
-
+        [Area("Admin")]
         public async Task<IActionResult> LockOut(string id)
         {
             if (id == null)
@@ -129,7 +131,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
-
+        [Area("Admin")]
         public async Task<IActionResult> LockOut(ApplicationUser applicationUser)
         {
             var userInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == applicationUser.Id);
@@ -148,6 +150,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(userInfo);
         }
 
+        [Area("Admin")]
         public async Task<IActionResult> Active(string id)
         {
             var UserInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
@@ -164,7 +167,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
-
+        [Area("Admin")]
         public async Task<IActionResult> Active(ApplicationUser applicationUser)
         {
             var userInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == applicationUser.Id);
@@ -182,6 +185,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             }
             return View();
         }
+        [Area("Admin")]
         public async Task<IActionResult> Delete(string id)
         {
 
@@ -196,6 +200,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
+        [Area("Admin")]
         public async Task<IActionResult> Delete(ApplicationUser userApplication)
         {
             if(ModelState.IsValid)

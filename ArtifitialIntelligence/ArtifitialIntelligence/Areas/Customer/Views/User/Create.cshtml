@@ -98,6 +98,16 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
         }
+    <script type="text/javascript">
+
+        $(function () {
+            var add = '@TempData["Save"]'
+            if (add != '') {
+                alertify.success(add);
+
+            }
+        })
+    </script>
 
     <script>
 $(document).ready(function(){
@@ -143,5 +153,6 @@ PhoneNumber: {
     </script>
     
     }
+
 
 
