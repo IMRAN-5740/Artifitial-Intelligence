@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
 {
    
-    [Authorize]
+    //[Authorize]
+   [Area("Customer")]
+
 
     public class UserController : Controller
     {
@@ -25,21 +27,21 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             _userManager = userManager;
             _context=context;
         }
-        [Area("Admin")]
+       // [Authorize]]
         public IActionResult Index()
         {
             var allUsers = _context.ApplicationUsers.ToList();
             return View(allUsers);
         }
-        [AllowAnonymous]
-        [Area("Customer")]
+      
+      
         public async Task<IActionResult> Create()
         {
 
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
+       
         public async Task<IActionResult> Create(ApplicationUser user)
         {
             if(ModelState.IsValid)
@@ -57,11 +59,13 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 }
             }
             
-         //   return View();
-            return RedirectToAction(nameof(Create));
+            //return View();
+           return RedirectToAction(nameof(Index));
+           // return RedirectToAction("Index", "Home", new {  Area = "Customer" });
+            //return RedirectToAction("Login", "Login", new {  Area = "Identity" });
         }
 
-
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             var user = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
@@ -73,6 +77,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(user);
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Edit(ApplicationUser userAppication)
         {
             var user = _context.ApplicationUsers.FirstOrDefault(c => c.Id == userAppication.Id);
@@ -104,7 +109,8 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(user);
         }
 
-        [Area("Admin")]
+        //[Area("Admin")]
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             var user = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
@@ -115,7 +121,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(user);
         }
-        [Area("Admin")]
+        [Authorize(Policy = "", Roles = "Admin")]
         public async Task<IActionResult> LockOut(string id)
         {
             if (id == null)
@@ -131,7 +137,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        [Area("Admin")]
+        [Authorize(Policy ="",Roles ="Admin")]
         public async Task<IActionResult> LockOut(ApplicationUser applicationUser)
         {
             var userInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == applicationUser.Id);
@@ -150,7 +156,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(userInfo);
         }
 
-        [Area("Admin")]
+        [Authorize(Policy = "", Roles = "Admin")]
         public async Task<IActionResult> Active(string id)
         {
             var UserInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
@@ -167,7 +173,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        [Area("Admin")]
+        [Authorize(Policy = "", Roles = "Admin")]
         public async Task<IActionResult> Active(ApplicationUser applicationUser)
         {
             var userInfo = _context.ApplicationUsers.FirstOrDefault(c => c.Id == applicationUser.Id);
@@ -185,7 +191,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             }
             return View();
         }
-        [Area("Admin")]
+        [Authorize(Policy = "", Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
 
@@ -200,7 +206,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        [Area("Admin")]
+        [Authorize(Policy = "", Roles = "Admin")]
         public async Task<IActionResult> Delete(ApplicationUser userApplication)
         {
             if(ModelState.IsValid)

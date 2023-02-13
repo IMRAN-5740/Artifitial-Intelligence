@@ -30,7 +30,7 @@ namespace ArtifitialIntelligence.Controllers
             _context=context;
         }
 
-        public IActionResult Index( int? page)
+        public IActionResult Index( /*int? page*/)
         {
             var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList()/*.ToPagedList(page ?? 1, 3)*/;
             _context.Companies.AddRange(mySortedList.ToArray());
@@ -38,9 +38,11 @@ namespace ArtifitialIntelligence.Controllers
             return View(mySortedList);
         }
         //Post Index Method
+        [Authorize]
         [HttpPost]
         [ActionName("Index")]
-        [Authorize]
+       
+   
      public IActionResult CompanyIndex(int? id)
         {
 

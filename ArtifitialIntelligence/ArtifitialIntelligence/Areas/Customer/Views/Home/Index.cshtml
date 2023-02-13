@@ -73,8 +73,8 @@
 
                         <form method="post">
                             <div class="row">
-                                <button style="display:block; margin:0.5em; text-transform: capitalize; text-align: center;" ,type='submit' , name='Like' , asp-route-id="@data.Id", value="{{ @data.Id }}"><i class="fas fa-thumbs-up"></i></button>
-                               @* <div class="col-3 "><input type="submit" value="Like" class="btn btn-success rounded" asp-route-id="@data.Id" /> </div>*@
+                               @* <button style="display:block; margin:0.5em; text-transform: capitalize; text-align: center;" ,type='submit' , name='Like' , asp-route-id="@data.Id", value="{{ @data.Id }}"><i class="fas fa-thumbs-up"></i></button>*@
+                                <div class="col-3 "><input type="submit" value="Like" class="btn btn-success rounded" asp-route-id="@data.Id" /> </div>
                                 <div class="col-3"></div>
                             </div>
                         </form>
@@ -98,3 +98,4 @@
     @*@Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))*@
  
 </div>
+

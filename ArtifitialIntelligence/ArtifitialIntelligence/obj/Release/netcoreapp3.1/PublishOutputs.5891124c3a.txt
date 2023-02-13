@@ -1,10 +1,11 @@
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\ArtifitialIntelligence.exe
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
-E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\1671014991549.jpeg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\ACI-CompanyLimited.jpeg
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\artificial-intelligence.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\EVGA_Graphics.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\IBM.jpeg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\Imran.jpg
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\Intel.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\microsoft.png
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Images\No-Image.png
@@ -44,6 +45,13 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Rel
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.js
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\52-rx-max-limited.jpg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\75-max-tiger.jpg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\in-stock.jpg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\Intel-Graphics.png
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\No-Image.png
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\out-of-stock.jpg
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\ProductImages\vivobook-14-series.jpg
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Release\netcoreapp3.1\PubTmp\Out\ArtifitialIntelligence.dll
