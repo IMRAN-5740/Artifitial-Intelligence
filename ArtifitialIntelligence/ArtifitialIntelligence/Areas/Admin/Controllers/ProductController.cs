@@ -20,6 +20,8 @@ namespace ArtifitialIntelligence.Areas.Admin.Controllers
     {
         private ApplicationDbContext _context;
         private readonly IHostingEnvironment _he;
+
+       
         public ProductController (ApplicationDbContext context,IHostingEnvironment he)
         {
             _context = context;

@@ -150,7 +150,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             if (rowAffected > 0)
             {
                 TempData["lock"] = "User Has Been LockOut Successfully";
-                return RedirectToAction(nameof(Index));
+                return  RedirectToAction(nameof(Index));
             }
 
             return View(userInfo);
