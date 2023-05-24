@@ -18,17 +18,55 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
     public class OrderController : Controller
     {
         ApplicationDbContext _context;
-        public OrderController (ApplicationDbContext context)
+        public OrderController(ApplicationDbContext context)
         {
             _context = context;
         }
         public IActionResult Index(int? page)
         {
             //var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList().ToPagedList(page ?? 1, 6);
-            var orderList = _context.Orders.OrderByDescending(c=> c.OrderNo).ToPagedList(1,6);
+            var orderList = _context.Orders.OrderByDescending(c => c.OrderNo).ToPagedList(1, 6);
             return View(orderList);
-           // return View();
+            // return View();
         }
+
+
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        public IActionResult Edit(int orderNo)
+        {
+            
+            return View();
+        }
+
+
+        public IActionResult Details()
+        {
+
+            return View();
+        }
+        public IActionResult Details(int orderNo)
+        {
+
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+
+            return View();
+        }
+        public IActionResult Delete (int orderNo)
+        {
+
+            return View();
+        }
+
+
+
         //Get CheckOut Action Method
         [HttpGet]
         public IActionResult CheckOut()

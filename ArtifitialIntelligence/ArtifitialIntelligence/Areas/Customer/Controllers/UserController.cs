@@ -51,6 +51,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 if (userResult.Succeeded)
                 {
                     var isSaveRole = await _userManager.AddToRoleAsync(user, "Client");
+
                     TempData["Save"] = "Registration Successfull";
                     //return RedirectToAction(nameof(Index));
                     //return RedirectToAction("Identity/Account/Login");
@@ -64,10 +65,10 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 }
             }
 
-            //return View();
-           // return RedirectToAction(nameof(Index));
+            return View();
+            //return RedirectToAction(nameof(Index));
             // return RedirectToAction("Index", "Home", new {  Area = "Customer" });
-            return RedirectToAction("Login","Identity/Pages/Account", new {  Area = "Identity" });
+            //return RedirectToAction("Login","Identity/Pages/Account", new {  Area = "Identity" });
 
         }
 

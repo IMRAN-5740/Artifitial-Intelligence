@@ -1,7 +1,15 @@
 ﻿@using ArtifitialIntelligence.Models;
 @using X.PagedList.Mvc.Core
+@using Microsoft.AspNetCore.Http
 @model X.PagedList.IPagedList<Order>
-
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    // int count = 0;
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("roleName");
+   
+    var myUserName = HttpContextAccessor.HttpContext.User.Identity.Name;
+    
+}
 
 @{
     ViewData["Title"] = "Index";
@@ -41,38 +49,44 @@
         </tr>
     </thead>
     <tbody>
+        
 @foreach (var item in Model) 
 {
-        <tr>
-                <td>
-                    @(serialNo++)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-           
-                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+
+            @if ((userRole == "Client" && myUserName==item.Email )|| (userRole=="Admin"))
+            {
+                <tr>
+                    <td>
+                        @(serialNo++)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
                     <partial name="_ButtonPartial" model="@item.Id" />
+
+                </tr>
+            }
+        }
            
-        </tr>
-}
     </tbody>
 </table>
 

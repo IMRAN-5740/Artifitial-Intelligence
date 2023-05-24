@@ -2,8 +2,10 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @{
-   // int count = 0;
+    // int count = 0;
     var userRole = HttpContextAccessor.HttpContext.Session.GetString("roleName");
+    //var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+    var myUserName = HttpContextAccessor.HttpContext.User.Identity.Name;
     List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
     if (companies == null)
     {
@@ -186,21 +188,21 @@
 
     
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; - Shopping Mart - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container"@* id="datetime-container"*@>
+            &copy; 2023 - Shopping Mart - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
            
         </div>
-        <div id="datetime-container"></div>
+        
     </footer>
 
-    <script>
+   @* <script>
         function updateDateTime() {
-            var now = new Date();
+          //  var now = new Date();
             var datetimeContainer = document.getElementById("datetime-container");
-            datetimeContainer.innerHTML = now.toLocaleString();
+            datetimeContainer.innerHTML = DateTime.Now;
         }
         setInterval(updateDateTime, 1000);
-    </script>
+    </script>*@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

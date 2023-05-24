@@ -14,7 +14,7 @@
         <h4>@ViewBag.message</h4>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="UserName"></label>
+                <label >UserName as Email</label>
             </div>
             <div class="col-5">
                 <input asp-for="UserName"  class="form-control" />
@@ -89,8 +89,9 @@
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Sign Up" />
+            <input type="submit" class="btn btn-primary" value="Sign Up"/>
            @* <a asp-action="Index" class="btn btn-success">Back to List</a>*@
+
         </div>
     </div>
 </form>

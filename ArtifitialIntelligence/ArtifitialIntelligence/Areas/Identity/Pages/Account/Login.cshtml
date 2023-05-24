@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
+                <h4 class="text-info">Use a local account to log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
@@ -40,7 +40,7 @@
                     </p>*@
                     <p>
                         @*<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>*@
-                        <a class="btn btn-primary" value="Sign Up" asp-area="Customer" asp-controller="User" asp-action="Create">Register as a new user</a>
+                        <a class="btn btn-outline-success" value="Sign Up" asp-area="Customer" asp-controller="User" asp-action="Create"><i class="fa-sharp fa-solid fa-user-plus fa-shake" style='color:blueviolet'></i>&nbsp;Register as a new user</a>
                     </p>
                     
                 </div>
@@ -79,6 +79,33 @@
     </div>
 </div>
 
-@section Scripts {
+@section Scripts 
+{
     <partial name="_ValidationScriptsPartial" />
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var add = '@TempData["Save"]'
+            if (add != '') {
+                alertify.success(add);
+
+            }
+        })
+    </script>
+
+
 }
