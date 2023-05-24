@@ -45,23 +45,19 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
         public IActionResult Details()
         {
-
             return View();
         }
         public IActionResult Details(int orderNo)
         {
-
             return View();
         }
 
         public IActionResult Delete()
         {
-
             return View();
         }
         public IActionResult Delete (int orderNo)
         {
-
             return View();
         }
 
