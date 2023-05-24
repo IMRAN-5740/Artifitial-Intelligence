@@ -133,7 +133,7 @@
                 @*<input type="submit" class="btn btn-primary" value="Update" />*@
                 <a asp-action="ShowComment" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary  pull-right btn-outline-info"> Rate this Product</a>
                @* <td>@Html.ActionLink("Rating/ReviewProduct", "ShowComment", new {productId=Model.Id})</td>*@
-                <a asp-action="ProductIndex" asp-route-id="@Model.CompanyId" class="btn btn-success">Back to Company Products</a>
+                <a asp-action="ProductIndex" asp-route-id="@Model.CompanyId" class="btn btn-success"> <i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Back to Company Products</a>
             </div>
              <div class="form-group row">
                 <div class="col-4">

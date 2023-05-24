@@ -99,9 +99,12 @@ Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
 @*<div>
     @Html.PagedListPager(Model,c=>Href("~/Customer/Order/Index?page="+c),X.PagedList.Web.Common.PagedListRenderOptions.MinimalWithItemCountText)
 </div>*@
+
+
 @section Scripts
-{
-    <script type="text/javascript">
+    {
+
+         <script type="text/javascript">
         $(function () {
             var ok = '@TempData["ok"]'
             if (ok != '') {
@@ -109,6 +112,42 @@ Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
             }
         })
     </script>
-
     
+    <script type="text/javascript">
+        $(document).ready(function () 
+        {
+            $('#myTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+        $(function () {
+            var add = '@TempData["add"]'
+            if (add != '') {
+                alertify.success(add);
+
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var edit = '@TempData["edit"]'
+            if (edit != '') {
+                alertify.success(edit);
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var done = '@TempData["done"]'
+            if (done != '') {
+                alertify.error(done);
+
+            }
+        })
+    </script>
+
 }

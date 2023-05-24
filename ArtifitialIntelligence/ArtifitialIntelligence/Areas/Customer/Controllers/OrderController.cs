@@ -3,6 +3,7 @@ using ArtifitialIntelligence.Models;
 using ArtifitialIntelligence.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,10 +33,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
 
 
-        //public IActionResult Edit()
-        //{
-        //    return View();
-        //}
+       
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -51,6 +49,36 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(checkOrder);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Order order)
+        {
+            var orderStatus = _context.Orders.FirstOrDefault(c => c.Id == order.Id);
+            if (orderStatus == null)
+            {
+                return NotFound();
+            }
+            if (order == null)
+            {
+                return NotFound();
+            }
+            if (orderStatus.Id != order.Id)
+            {
+                return NotFound();
+            }
+            orderStatus.Name = order.Name;
+            orderStatus.PhoneNo = order.PhoneNo;
+            orderStatus.Email = order.Email;
+            orderStatus.Address = order.Address;
+            orderStatus.OrderDate = order.OrderDate;
+
+
+           _context.Orders.Update(orderStatus);
+            await _context.SaveChangesAsync();
+            TempData["edit"] = "Order Info Updated Successfully";
+            return RedirectToAction(nameof(Index));
+        }
+
         [HttpGet]
         public IActionResult Details(int? id)
         {
@@ -66,16 +94,8 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(checkOrder);
         }
-        [HttpPost]
-        //public IActionResult Details(int? id)
-        //{
-        //    return View();
-        //}
+        
 
-        //public IActionResult Delete()
-        //{
-        //    return View();
-        //}
         [HttpGet]
         public IActionResult Delete (int? id)
         {
@@ -92,6 +112,33 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             return View(checkOrder);
         }
 
+        public async Task<IActionResult> Delete(Order order)
+        {
+            var orderStatus = _context.Orders.FirstOrDefault(c => c.Id == order.Id);
+            if (orderStatus == null)
+            {
+                return NotFound();
+            }
+            if (order == null)
+            {
+                return NotFound();
+            }
+            if (orderStatus.Id != order.Id)
+            {
+                return NotFound();
+            }
+            //orderStatus.Name = order.Name;
+            //orderStatus.PhoneNo = order.PhoneNo;
+            //orderStatus.Email = order.Email;
+            //orderStatus.Address = order.Address;
+            //orderStatus.OrderDate = order.OrderDate;
+
+
+            _context.Orders.Remove(orderStatus);
+            await _context.SaveChangesAsync();
+            TempData["done"] = "Order has been Deleted Successfully";
+            return RedirectToAction(nameof(Index));
+        }
 
 
         //Get CheckOut Action Method
