@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2ju68DB/B4uEc0rTCE+LHpBt6U5gdOmiuhj1oBmHg89bBEDsytN5tE8DE3dLOCQ8GR/9qh0+VxvdTp5lsGx6YQ==",
+  "dgSpecHash": "Vk68Ry6oYaPmQkMDz9nCpDwHuYkMTeds5Py89IGjxqyqnD922f0nRUwb68CE7IXljIxRjA1qLUf/36TgIXAlwQ==",
   "success": true,
-  "projectFilePath": "E:\\Artifitial Intelligence\\ArtifitialIntelligence\\ArtifitialIntelligence\\ArtifitialIntelligence.csproj",
+  "projectFilePath": "E:\\Artifitial Intelligence\\ArtifitialIntelligence\\ArtifitialIntelligence\\ShoppingMart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\imran\\.nuget\\packages\\jquery\\1.8.0\\jquery.1.8.0.nupkg.sha512",
     "C:\\Users\\imran\\.nuget\\packages\\jquery.validation\\1.8.0.1\\jquery.validation.1.8.0.1.nupkg.sha512",

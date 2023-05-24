@@ -47,6 +47,7 @@ namespace ArtifitialIntelligence
             {
                 config.LoginPath = "/Identity/Account/Login";
             });
+           
             services.AddSession(options =>
             {
                 //options.Cookie.Name = ".AdventureWorks.Session";

@@ -254,3 +254,8 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Deb
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\CheckOut.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Index.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CommentPartial.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\staticwebassets\ArtifitialIntelligence.StaticWebAssets.Pack.cache
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.ArtifitialIntelligence.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.ArtifitialIntelligence.props
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.ArtifitialIntelligence.props
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.ArtifitialIntelligence.props

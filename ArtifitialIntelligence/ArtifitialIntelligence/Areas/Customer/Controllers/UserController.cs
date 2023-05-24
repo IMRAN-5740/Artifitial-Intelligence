@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
@@ -51,18 +52,23 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 {
                     var isSaveRole = await _userManager.AddToRoleAsync(user, "Client");
                     TempData["Save"] = "Registration Successfull";
-                    return RedirectToAction(nameof(Index));
+                    //return RedirectToAction(nameof(Index));
+                    //return RedirectToAction("Identity/Account/Login");
+                    return RedirectToAction("Login", "Account", new { Area = "Identity" });
+
+
                 }
                 foreach (var error in userResult.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            
+
             //return View();
-           return RedirectToAction(nameof(Index));
-           // return RedirectToAction("Index", "Home", new {  Area = "Customer" });
-            //return RedirectToAction("Login", "Login", new {  Area = "Identity" });
+           // return RedirectToAction(nameof(Index));
+            // return RedirectToAction("Index", "Home", new {  Area = "Customer" });
+            return RedirectToAction("Login","Identity/Pages/Account", new {  Area = "Identity" });
+
         }
 
         [Authorize]
