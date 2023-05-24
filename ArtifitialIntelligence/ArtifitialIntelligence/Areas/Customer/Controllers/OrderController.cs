@@ -32,33 +32,64 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
 
 
-        public IActionResult Edit()
+        //public IActionResult Edit()
+        //{
+        //    return View();
+        //}
+        [HttpGet]
+        public IActionResult Edit(int? id)
         {
-            return View();
-        }
-        public IActionResult Edit(int orderNo)
-        {
-            
-            return View();
-        }
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var checkOrder=_context.Orders.FirstOrDefault(check=>check.Id== id);
+            if(checkOrder==null)
+            {
+                return NotFound();
+            }
 
+            return View(checkOrder);
+        }
+        [HttpGet]
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var checkOrder = _context.Orders.FirstOrDefault(check => check.Id == id);
+            if (checkOrder == null)
+            {
+                return NotFound();
+            }
 
-        public IActionResult Details()
-        {
-            return View();
+            return View(checkOrder);
         }
-        public IActionResult Details(int orderNo)
-        {
-            return View();
-        }
+        [HttpPost]
+        //public IActionResult Details(int? id)
+        //{
+        //    return View();
+        //}
 
-        public IActionResult Delete()
+        //public IActionResult Delete()
+        //{
+        //    return View();
+        //}
+        [HttpGet]
+        public IActionResult Delete (int? id)
         {
-            return View();
-        }
-        public IActionResult Delete (int orderNo)
-        {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var checkOrder = _context.Orders.FirstOrDefault(check => check.Id == id);
+            if (checkOrder == null)
+            {
+                return NotFound();
+            }
+
+            return View(checkOrder);
         }
 
 
