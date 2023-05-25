@@ -2,6 +2,7 @@
 using ArtifitialIntelligence.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
@@ -23,12 +24,14 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
         UserManager<IdentityUser> _userManager;
         ApplicationDbContext _context;
-        public UserController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        IHttpContextAccessor _httpContextAccessor;
+        public UserController(UserManager<IdentityUser> userManager, ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
-            _context=context;
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
-       // [Authorize]]
+        // [Authorize]]
         public IActionResult Index()
         {
             var allUsers = _context.ApplicationUsers.ToList();
@@ -128,19 +131,32 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(user);
         }
-        [Authorize(Policy = "", Roles = "Admin")]
+        //[Authorize(Policy = "" /*Roles = "Admin")*/]
         public async Task<IActionResult> LockOut(string id)
         {
+            
+
             if (id == null)
             {
                 return NotFound();
             }
-            var Info = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
-            if (Info == null)
+            var info = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+
+            if (info == null)
             {
                 return NotFound();
             }
-            return View(Info);
+            string myUserName = _httpContextAccessor.HttpContext.User.Identity.Name;
+            if (myUserName == "admin@gmail.com")
+            {
+                return View(info);
+            }
+             
+            if (info.UserName != "admin@gmail.com")
+            {
+                return RedirectToAction("AccessDenied", "Account", new { Area = "Identity" });
+            }
+            return View(info);
         }
 
         [HttpPost]
@@ -203,6 +219,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         {
 
             var user = _context.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            
             if (user == null)
             {
                 return NotFound();

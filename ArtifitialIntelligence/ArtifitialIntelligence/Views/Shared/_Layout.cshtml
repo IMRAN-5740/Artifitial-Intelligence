@@ -152,11 +152,11 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Order" asp-action="Index">Order List</a>
+                                <a class="nav-link text-dark btn btn-outline-info" asp-area="Customer" asp-controller="Order" asp-action="Index"><i class='fas fa-sitemap' style='font-size:30px;color:green'></i> Order List</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">
-                                    Cart
+                                <a class="nav-link text-dark btn btn-outline-info" asp-area="Customer" asp-controller="Home" asp-action="Cart">
+                                  Cart
                                     <i class="fas fa-shopping-cart"></i>
                                     (@count)
 
@@ -167,9 +167,9 @@
 
                                 </a>
                             </li>
-                            <li class="nav-item">
+                           @* <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
+                            </li>*@
                         }
                        
                      
