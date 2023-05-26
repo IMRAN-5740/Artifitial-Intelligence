@@ -4,30 +4,47 @@
     ViewData["Title"] = "Create";
 }
 <br />
-<h2 class="text-info">Registration Form</h2>
+<h2 class="text-info" style="text-align:center">Registration Form</h2>
 
+<style>
+    .form-center
+    {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+     
+    }
+   
+
+
+  </style>
+
+
+  <div class="form-center">
 <form asp-action="Create" method="post"  id="user-form" enctype="multipart/form-data">
-    <div class="p-4 rounded border">
+    <div class="p-2 rounded border">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <h4>@ViewBag.message</h4>
         <div class="form-group row">
-            <div class="col-2">
-                <label >UserName as Email</label>
+            <div class="col-4">
+                  <label asp-for="UserName" placeholder="as Email" ></label>
             </div>
-            <div class="col-5">
-                <input asp-for="UserName"  class="form-control" />
+            <div class="col-8">
+                <input asp-for="UserName"  placeholder="as Email"  class="form-control" />
 
             </div>
             <span asp-validation-for="UserName" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="FirstName"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="FirstName"  class="form-control" />
 
             </div>
@@ -35,10 +52,10 @@
         </div>
 
          <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="MiddleName"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="MiddleName" placeholder="optional field" class="form-control" />
 
             </div>
@@ -46,10 +63,10 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="LastName"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="LastName"  class="form-control" />
 
             </div>
@@ -57,10 +74,10 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="Email"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="Email"  class="form-control" type="email" />
 
             </div>
@@ -68,10 +85,10 @@
         </div>
         
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="PasswordHash"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="PasswordHash"  class="form-control" type="password" />
 
 
@@ -80,21 +97,22 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-2">
+            <div class="col-4">
                 <label asp-for="PhoneNumber"></label>
             </div>
-            <div class="col-5">
+            <div class="col-8">
                 <input asp-for="PhoneNumber"  placeholder="Mobile Number" class="form-control" type="number" />
             </div>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Sign Up"/>
+            <input type="submit"   class="btn btn-primary"  value="Sign Up"/>
            @* <a asp-action="Index" class="btn btn-success">Back to List</a>*@
 
         </div>
     </div>
 </form>
+</div>
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
