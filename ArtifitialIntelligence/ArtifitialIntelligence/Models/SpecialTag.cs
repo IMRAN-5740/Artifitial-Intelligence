@@ -7,7 +7,7 @@ namespace ArtifitialIntelligence.Models
     {
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Special Tag Name")]
+        [Display(Name = "Category Name")]
         public string SpecialTagName { get; set; }
     }
 }

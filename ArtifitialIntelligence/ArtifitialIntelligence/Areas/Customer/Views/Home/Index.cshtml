@@ -63,7 +63,11 @@
                         <label class="ok">@data.CompanyName</label>
                     </h4>
                 </div>
-                <img src="~/@data.ImageFileName" alt="Card-Image" class="card-img-top" style="height:300px;" />
+             @*   <a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id"> <img src="~/@data.ImageFileName" alt="Card-Image" class="card-img-top pull-right btn-outline-info" style="height:300px;" /></a>*@
+                <a asp-action="Details" asp-controller="Home" asp-route-id="@data.Id" class="btn btn-primary card-img-top pull-right btn-outline-info"><img src="~/@data.ImageFileName" alt="Card-Image" class="card-img-top" style="height:300px;" /></a>
+
+
+               
                 <div class="card-header">
                    
                     <div class="d-flex justify-content-between align-items-center">
@@ -71,10 +75,10 @@
                             <label class="ok1">Vote :@data.Like</label>
                         </div>
 
-                        <form method="post">
+                        <form method="post" action="Index">
                             <div class="row">
                                @* <button style="display:block; margin:0.5em; text-transform: capitalize; text-align: center;" ,type='submit' , name='Like' , asp-route-id="@data.Id", value="{{ @data.Id }}"><i class="fas fa-thumbs-up"></i></button>*@
-                                <div class="col-3 "><input type="submit" value="Like" class="btn btn-success rounded" asp-route-id="@data.Id" /> </div>
+                                <div class="col-3 "><input type="submit" value="Like" class="btn btn-outline-success" asp-route-id="@data.Id" /> </div>
                                 <div class="col-3"></div>
                             </div>
                         </form>

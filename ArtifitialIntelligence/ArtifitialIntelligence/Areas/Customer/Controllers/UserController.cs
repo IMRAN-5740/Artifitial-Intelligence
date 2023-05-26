@@ -99,6 +99,7 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             {
                 return NotFound();
             }
+
             if(user.Id != userAppication.Id)
             {
                 return NotFound();
@@ -106,10 +107,12 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             user.FirstName = userAppication.FirstName;
             user.MiddleName = userAppication.MiddleName;
             user.LastName= userAppication.LastName;
+            user.PhoneNumber=userAppication.PhoneNumber;
            var resultUser= await _userManager.UpdateAsync(user);
             if(resultUser.Succeeded)
             {
                 TempData["Update"] = "User Data Has been Updated";
+             
                 return RedirectToAction(nameof(Index));
             }
             foreach(var error in resultUser.Errors)

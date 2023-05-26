@@ -27,9 +27,9 @@ namespace ArtifitialIntelligence.Controllers
 
         public HomeController(ApplicationDbContext context)
         {
-            _context=context;
+            _context = context;
         }
-
+        [HttpGet]
         public IActionResult Index( /*int? page*/)
         {
             var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList()/*.ToPagedList(page ?? 1, 3)*/;
@@ -40,10 +40,10 @@ namespace ArtifitialIntelligence.Controllers
         //Post Index Method
         [Authorize]
         [HttpPost]
-        [ActionName("Index")]
+        //[ActionName("Index")]
        
    
-     public IActionResult CompanyIndex(int? id)
+     public IActionResult Index(int? id)
         {
 
             if (id == null)
@@ -67,9 +67,14 @@ namespace ArtifitialIntelligence.Controllers
 
             //  _context.Companies.Add(company);
             var companies = _context.Companies.ToList();
+         
+            var mySortedList = _context.Companies.OfType<Company>().OrderByDescending(x => x.Like).ToList();
             _context.SaveChangesAsync();
-           // return View(companies);
-            return RedirectToAction(nameof(Index));
+            // var companies=_context.Companies.ToList();
+            return View("Index", mySortedList);
+            // return View(companies);
+            //return RedirectToAction("Index", "Home", new { Area = "Customer" });
+           
         }
 
 
