@@ -262,3 +262,6 @@ E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Deb
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Details.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Delete.cshtml.g.cs
 E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Edit.cshtml.g.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll

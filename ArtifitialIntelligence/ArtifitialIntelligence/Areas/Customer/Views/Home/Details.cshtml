@@ -12,6 +12,7 @@
 @{
 
     List<Company> companies = HttpContextAccessor.HttpContext.Session.Get<List<Company>>("companies");
+    var myUserName = HttpContextAccessor.HttpContext.User.Identity.Name;
     Company company = null;
     if (companies != null)
     {
@@ -57,17 +58,20 @@
             </div>
 
             
+            @if (myUserName == "admin@gmail.com")
+            {
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="AnchorLink"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ImageFileName" class="form-control" readonly="readonly" />
 
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="AnchorLink"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="ImageFileName" class="form-control" readonly="readonly" />
+                    </div>
 
                 </div>
-                
-            </div>
+            }
+           
 
             <div class="form-group row">
                 <div class="col-4">
@@ -109,6 +113,7 @@
         </div>
         <div class="col-1"></div>
         <div class="col-3">
+            <h3 style="text-align:center;color:red">Company Picture</h3>
             <img src="~/@Model.ImageFileName" width="100%" />
             @*@if(Model.IsAvailable)
             {

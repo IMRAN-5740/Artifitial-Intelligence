@@ -51,7 +51,7 @@
     </style>
 }*@
 
-<div class="row">
+<div class="row" @*id="myTable"*@>
     
 
     @foreach (var data in Model)
@@ -93,13 +93,26 @@
 
 
 
+@*@section Scripts
+    {
+    <script type="text/javascript">
 
-
-
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+    }
+@*
+*@
 
 
 <div>
-    @*@Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))*@
- 
+  @*  Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c))
+ *@
 </div>
 

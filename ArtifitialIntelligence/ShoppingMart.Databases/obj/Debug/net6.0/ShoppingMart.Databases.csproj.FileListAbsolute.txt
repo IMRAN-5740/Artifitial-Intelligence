@@ -1,0 +1,5 @@
+E:\Artifitial Intelligence\ArtifitialIntelligence\ShoppingMart.Databases\obj\Debug\net6.0\ShoppingMart.Databases.csproj.AssemblyReference.cache
+E:\Artifitial Intelligence\ArtifitialIntelligence\ShoppingMart.Databases\obj\Debug\net6.0\ShoppingMart.Databases.GeneratedMSBuildEditorConfig.editorconfig
+E:\Artifitial Intelligence\ArtifitialIntelligence\ShoppingMart.Databases\obj\Debug\net6.0\ShoppingMart.Databases.AssemblyInfoInputs.cache
+E:\Artifitial Intelligence\ArtifitialIntelligence\ShoppingMart.Databases\obj\Debug\net6.0\ShoppingMart.Databases.AssemblyInfo.cs
+E:\Artifitial Intelligence\ArtifitialIntelligence\ShoppingMart.Databases\obj\Debug\net6.0\ShoppingMart.Databases.csproj.CoreCompileInputs.cache
