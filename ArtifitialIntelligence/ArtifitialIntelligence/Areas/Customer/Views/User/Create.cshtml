@@ -3,9 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-<br />
-<h2 class="text-info" style="text-align:center">Registration Form</h2>
 
+<h1 style="text-align:center;color:green;">Registration Form</h1>
 <style>
     .form-center
     {
@@ -22,9 +21,9 @@
   </style>
 
 
-<div class="form-center bg-body-secondary">
+<div class="form-center ">
 <form asp-action="Create" method="post"  id="user-form" enctype="multipart/form-data">
-    <div class="p-2 rounded border">
+    <div class="p-2 rounded border bg-info">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -104,12 +103,16 @@
                 <input asp-for="PhoneNumber"  placeholder="Mobile Number" class="form-control" type="number" />
             </div>
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
+        </div >
             <div class="form-group text-center">
-                <input type="submit" class="btn btn-outline-success"  value="Sign Up"/>
-           @* <a asp-action="Index" class="btn btn-success">Back to List</a>*@
-
+                <input type="submit" class="btn btn-outline-dark "  value="Sign Up"/>
+                <p>
+                    <a class="btn btn-outline-dark" asp-area="Identity" asp-page="/Account/Login"><i class="fa-sharp fa-solid fa-right-to-bracket fa-shake " style='color:green'></i>&nbsp Go to Login Page</a>
+                </p>
         </div>
+                
+                
+          
     </div>
 </form>
 </div>
