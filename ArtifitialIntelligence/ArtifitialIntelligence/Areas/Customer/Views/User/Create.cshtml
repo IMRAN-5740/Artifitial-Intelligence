@@ -33,7 +33,7 @@
                   <label asp-for="UserName" placeholder="as Email" ></label>
             </div>
             <div class="col-8">
-                <input asp-for="UserName"  placeholder="as Email"  class="form-control" />
+                <input asp-for="UserName"  placeholder="Email Address"  class="form-control" />
 
             </div>
             <span asp-validation-for="UserName" class="text-danger"></span>
@@ -44,7 +44,7 @@
                 <label asp-for="FirstName"></label>
             </div>
             <div class="col-8">
-                <input asp-for="FirstName"  class="form-control" />
+                    <input asp-for="FirstName" placeholder="First Name" class="form-control" />
 
             </div>
             <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -55,7 +55,7 @@
                 <label asp-for="MiddleName"></label>
             </div>
             <div class="col-8">
-                <input asp-for="MiddleName" placeholder="optional field" class="form-control" />
+                <input asp-for="MiddleName" placeholder="Optional field" class="form-control" />
 
             </div>
             <span asp-validation-for="MiddleName" class="text-danger"></span>
@@ -66,7 +66,7 @@
                 <label asp-for="LastName"></label>
             </div>
             <div class="col-8">
-                <input asp-for="LastName"  class="form-control" />
+                    <input asp-for="LastName" placeholder="Last Name" class="form-control" />
 
             </div>
             <span asp-validation-for="LastName" class="text-danger"></span>
@@ -77,7 +77,7 @@
                 <label asp-for="Email"></label>
             </div>
             <div class="col-8">
-                <input asp-for="Email"  class="form-control" type="email" />
+                    <input asp-for="Email" placeholder="Email Address" class="form-control" type="email" />
 
             </div>
             <span asp-validation-for="Email" class="text-danger"></span>
@@ -88,11 +88,11 @@
                 <label asp-for="PasswordHash"></label>
             </div>
             <div class="col-8">
-                <input asp-for="PasswordHash"  class="form-control" type="password" />
+                    <input asp-for="PasswordHash" placeholder="Password" class="form-control" type="password" />
 
 
             </div>
-            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            <span asp-validation-for="PasswordHash"  class="text-danger"></span>
         </div>
 
         <div class="form-group row">

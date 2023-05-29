@@ -23,17 +23,63 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int? page)
+        public IActionResult Index(int? id)
         {
             //var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList().ToPagedList(page ?? 1, 6);
-            var orderList = _context.Orders.OrderByDescending(c => c.OrderNo).ToPagedList(1, 6);
-            return View(orderList);
+           if(id== null)
+            {
+                var orderList = _context.Orders.OrderByDescending(c => c.OrderNo).ToPagedList(1, 6);
+                return View(orderList);
+            }
+           else
+            {
+                List<Products> listOfProduct = new List<Products>();
+                listOfProduct = (from pro in _context.OrderDetails
+                                 where pro.OrderId == id
+                                 select new Products()
+                                 {
+
+                                     Name = pro.Products.Name,
+                                     Image= pro.Products.Image,
+                                     Price=pro.Products.Price
+
+                                 }).ToList();
+
+                ViewBag.ProductDetails = listOfProduct;
+                decimal sumTotal = 0;
+                foreach(var data in listOfProduct)
+                {
+                    sumTotal = sumTotal + data.Price;
+                }
+                ViewBag.ProductSum=sumTotal;
+                var orderList = _context.Orders.OrderByDescending(c => c.OrderNo).ToPagedList(1, 6);
+                return View(orderList);
+            }
+            
             // return View();
+        }
+        [HttpGet]
+        public IActionResult OrderProductIndex(int id)
+        {
+            //var product = _context.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList().ToPagedList(page ?? 1, 6);
+            List<Products> listOfProduct = new List<Products>();
+            listOfProduct = (from pro in _context.OrderDetails
+                             where pro.OrderId == id
+                             select new Products()
+                             {
+                                 
+                                 Name=pro.Products.Name
+
+                             }).ToList();
+                ViewBag.ProductDetails = listOfProduct;
+           return View(listOfProduct);
+
+             
         }
 
 
 
-       
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {

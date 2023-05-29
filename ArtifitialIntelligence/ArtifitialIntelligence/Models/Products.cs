@@ -19,6 +19,10 @@ namespace ArtifitialIntelligence.Models
         [Required]
         [Display(Name = "Status")]
         public bool IsAvailable { get; set; }
+
+
+
+
         [Required]
         [Display(Name = "Product Type")]
         public int ProductTypeId { get; set; }
