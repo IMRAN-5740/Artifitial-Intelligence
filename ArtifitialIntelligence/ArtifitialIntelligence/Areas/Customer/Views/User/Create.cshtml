@@ -30,7 +30,7 @@
         <h4>@ViewBag.message</h4>
         <div class="form-group row">
             <div class="col-4">
-                  <label asp-for="UserName" placeholder="as Email" ></label>
+                  Email
             </div>
             <div class="col-8">
                 <input asp-for="UserName"  placeholder="Email Address"  class="form-control" />
@@ -55,7 +55,7 @@
                 <label asp-for="MiddleName"></label>
             </div>
             <div class="col-8">
-                <input asp-for="MiddleName" placeholder="Optional field" class="form-control" />
+                <input asp-for="MiddleName" placeholder="Optional field Middle Name" class="form-control" />
 
             </div>
             <span asp-validation-for="MiddleName" class="text-danger"></span>
@@ -72,7 +72,7 @@
             <span asp-validation-for="LastName" class="text-danger"></span>
         </div>
 
-        <div class="form-group row">
+       @* <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Email"></label>
             </div>
@@ -81,11 +81,12 @@
 
             </div>
             <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
+        </div>*@
         
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="PasswordHash"></label>
+                @*<label asp-for="PasswordHash"></label>*@
+                Password
             </div>
             <div class="col-8">
                     <input asp-for="PasswordHash" placeholder="Password" class="form-control" type="password" />
@@ -106,10 +107,13 @@
         </div >
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-outline-dark "  value="Sign Up"/>
+                
+        </div>
+            <div class="form-group text-center">
                 <p>
                     <a class="btn btn-outline-dark" asp-area="Identity" asp-page="/Account/Login"><i class="fa-sharp fa-solid fa-right-to-bracket fa-shake " style='color:green'></i>&nbsp Go to Login Page</a>
                 </p>
-        </div>
+            </div>
                 
                 
           
@@ -163,9 +167,9 @@ PhoneNumber: {
  },
     messages:
     {
-        UserName:"Enter your User Name",
+        UserName:"Enter your Email Address",
         FirstName:"Enter your First Name",
-        Lastname:"Enter your Last Name",
+        LastName:"Enter your Last Name",
         Email:"Please Enter your Email",
         PasswordHash:"Please Enter Valid Password",
         PhoneNumber:"Enter your Phone Number"

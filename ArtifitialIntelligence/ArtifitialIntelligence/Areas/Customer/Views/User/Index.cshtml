@@ -45,7 +45,7 @@
                 <th>Serial No</th>
                 <th>Name</th>
                 <th>@Html.DisplayNameFor(c=>c.UserName)</th>
-                <th>@Html.DisplayNameFor(c=>c.Email)</th>
+             @*   <th>@Html.DisplayNameFor(c=>c.Email)</th>*@
                 <th>@Html.DisplayNameFor(c=>c.PhoneNumber)</th>
                 <th>User Status</th>
                 <th>Action</th>
@@ -55,14 +55,14 @@
         <tbody>
             @foreach (var data in Model)
             {
-                @if ((userRole == "Client" && myUserName == data.Email) || (userRole == "Admin"))
+                @if ((userRole == "Client" && myUserName == data.UserName) || (userRole == "Admin"))
                 {
                     <tr>
                           <td>@(serialNo++)</td>
                         @*<td> @data.Id</td>*@
                         <td>@data.FirstName @data.MiddleName @data.LastName</td>
                         <td>@data.UserName</td>
-                        <td>@data.Email</td>
+                       @* <td>@data.Email</td>*@
                         <td>@data.PhoneNumber</td>
                         @if (data.LockoutEnd > DateTime.Now && data.LockoutEnd != null)
                         {

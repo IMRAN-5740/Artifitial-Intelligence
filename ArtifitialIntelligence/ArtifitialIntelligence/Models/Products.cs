@@ -30,11 +30,12 @@ namespace ArtifitialIntelligence.Models
         [ForeignKey("ProductTypeId")]
         public ProductTypes ProductTypes { get; set; }
         [Required]
-        [Display(Name = "Special Tag Name")]
+        [Display(Name = "Category Name")]
         public int SpecialTagId { get; set; }
 
         [ForeignKey("SpecialTagId")]
         public SpecialTag SpecialTag { get; set; }
+        [Display(Name ="Company Name")]
 
         public int CompanyId { get; set; }
 
