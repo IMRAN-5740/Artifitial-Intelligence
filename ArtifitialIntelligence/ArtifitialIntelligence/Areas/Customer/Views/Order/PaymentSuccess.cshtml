@@ -1,0 +1,20 @@
+﻿@model Order
+<div class="align-content-center">
+    <div class="text-center text-success">
+        <h3>Payment Received Successfully</h3>
+    </div>
+    <br />
+    <table class="table table-striped " width="10px">
+        <thead>
+            <tr>
+                <td> <b> Transaction Number</b> </td>
+                <td>@Html.DisplayText("TransactionID")</td>
+             </tr>
+            <tr>
+                <td> <b>Order Process Number</b> </td>
+                <td>@Html.DisplayText("OrderProcessID")</td>
+            </tr>
+        </thead>
+    </table>
+
+</div>

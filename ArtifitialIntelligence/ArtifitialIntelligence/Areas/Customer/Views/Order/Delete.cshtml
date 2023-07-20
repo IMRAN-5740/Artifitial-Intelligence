@@ -77,7 +77,17 @@
             </div>
             <span asp-validation-for="OrderDate" class="text-danger"></span>
         </div>
-      
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TotalOrderAmount"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="TotalOrderAmount" readonly="readonly" class="form-control" />
+            </div>
+            <span asp-validation-for="TotalOrderAmount" class="text-danger"></span>
+        </div>
         <div class="col-5">
             <h4 style="color:red">Do you Want to Delete this Order Permenantly</h4>
         </div>

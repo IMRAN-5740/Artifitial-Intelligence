@@ -40,8 +40,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
+                <input asp-for="OrderDate" type="datetime" class="form-control" />
                 <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <label asp-for="TotalOrderAmount" class="control-label"></label>
+                <input asp-for="TotalOrderAmount" disabled class="form-control" />
+                <span asp-validation-for="TotalOrderAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Update Data" />
@@ -52,3 +59,18 @@
 </div>
  
 
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            $("#OrderDate").datepicker
+                (
+                    {
+                        showAnim: "slide",
+                        changeMonth: true,
+                        changeYear: true
+                    }
+                );
+        });
+    </script>
+}

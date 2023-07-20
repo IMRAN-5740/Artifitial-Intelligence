@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtifitialIntelligence.Models
 {
@@ -24,6 +26,14 @@ namespace ArtifitialIntelligence.Models
         [Required]
         public string Address { get; set; }
         public DateTime OrderDate { get; set; }
+        [DisplayName("Total Amount")]
+        public double? TotalOrderAmount { get; set; }
+      
+        [DisplayName("Transaction ID")]
+        public string TransactionID { get; set; }
+       
+        [DisplayName("Online Order ID")]
+        public string OrderProcessID { get;set; }
         public virtual List<OrderDetails> OrderDetails { get; set; }
     }
 }

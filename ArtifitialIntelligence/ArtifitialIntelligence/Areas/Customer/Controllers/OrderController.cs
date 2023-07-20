@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Razorpay.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using X.PagedList;
+using Order = ArtifitialIntelligence.Models.Order;
 
 namespace ArtifitialIntelligence.Areas.Customer.Controllers
 {
@@ -210,15 +212,43 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
                 }
             }
             anOrder.OrderNo = GetOrderNumber();
-            
-            _context.Orders.Add(anOrder);
-            await _context.SaveChangesAsync();
-            HttpContext.Session.Set("products", new List<Products>());
-            // TempData["status"] = "Success";
-            TempData["ok"] = "Order Placed/Confirmed has been Successfully";
-            TempData["message"] = "Order has been confirmed we've also sent an email for confirmetion.It will be delivered soon Thank you";
-            return RedirectToAction(nameof(Index));
-           // return View();
+            anOrder.TotalOrderAmount = (double?)products.Sum(c => c.Price);
+
+            //Order Creation Start
+
+            Dictionary<string, object> input = new Dictionary<string, object>();
+            Random _randValue = new Random();
+            string transactionID = _randValue.Next(0, 1000000000).ToString();
+            input.Add("amount", anOrder.TotalOrderAmount); // this amount should be same as transaction amount
+            input.Add("currency", "BDT");
+            input.Add("receipt", transactionID);
+
+            string key = "rzp_test_lREs8Rf3l8zn70";
+            string secret = "OYlhq3wBQVbS48Ebh5sfH2a6";
+           
+            RazorpayClient client = new RazorpayClient(key, secret);
+
+            Razorpay.Api.Order order = client.Order.Create(input);
+            ViewBag.orderId = order["id"].ToString();
+            if(ViewBag.orderId != null)
+            {
+                _context.Orders.Add(anOrder);
+                await _context.SaveChangesAsync();
+                HttpContext.Session.Set("products", new List<Products>());
+                // TempData["status"] = "Success";
+                //TempData["ok"] = "Order Placed/Confirmed has been Successfully";
+                //TempData["message"] = "Order has been confirmed we've also sent an email for confirmetion.It will be delivered soon Thank you";
+                ViewBag.orderDetails = anOrder;
+                return View("Payment", anOrder);
+                //return RedirectToAction(nameof(Index));
+            }
+
+            //Order Creation Close
+
+
+
+            //return RedirectToAction(nameof(Index));
+             return View(anOrder);
         }
 
         public string GetOrderNumber()
@@ -227,6 +257,24 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
             //rowCount=rowCount+1;
             return rowCount.ToString("000");
         }
-       
+        [HttpPost]
+        public IActionResult Payment(string razorpay_payment_id, string razorpay_order_id , string razorpay_signature)
+        {
+            Dictionary<string, string> attributes = new Dictionary<string, string>();
+            attributes.Add("razorpay_payment_id", razorpay_payment_id);
+            attributes.Add("razorpay_order_id", razorpay_order_id);
+            attributes.Add("razorpay_signature", razorpay_signature);
+            Utils.verifyPaymentSignature(attributes);
+            Order anOrder= new Order();
+            anOrder.TransactionID = razorpay_payment_id;
+            anOrder.OrderProcessID = razorpay_order_id;
+            //TempData["ok"] = "Order Placed/Confirmed has been Successfully";
+            return View("PaymentSuccess", anOrder);
+            //TempData["message"] = "Order has been confirmed we've also sent an email for confirmetion.It will be delivered soon Thank you";
+
+            //return RedirectToAction(nameof(Index));
+            //return View();
+        }
+
     }
 }

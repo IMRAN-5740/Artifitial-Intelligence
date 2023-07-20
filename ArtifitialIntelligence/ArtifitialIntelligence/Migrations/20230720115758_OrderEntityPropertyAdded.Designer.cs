@@ -4,14 +4,16 @@ using ArtifitialIntelligence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ArtifitialIntelligence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230720115758_OrderEntityPropertyAdded")]
+    partial class OrderEntityPropertyAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,18 +107,12 @@ namespace ArtifitialIntelligence.Migrations
                     b.Property<string>("OrderNo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderProcessID")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PhoneNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("TotalOrderAmount")
                         .HasColumnType("float");
-
-                    b.Property<string>("TransactionID")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
