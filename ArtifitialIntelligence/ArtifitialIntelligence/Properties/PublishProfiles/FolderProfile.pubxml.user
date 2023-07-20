@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>E:\Artifitial Intelligence\ArtifitialIntelligence\ArtifitialIntelligence\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
-    <History>True|2023-06-21T17:09:32.6223159Z;</History>
+    <History>True|2023-07-15T14:47:39.5012509Z;True|2023-07-15T12:35:04.9443796+06:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

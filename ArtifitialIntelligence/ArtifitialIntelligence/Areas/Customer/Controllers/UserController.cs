@@ -86,7 +86,11 @@ namespace ArtifitialIntelligence.Areas.Customer.Controllers
 
             return View(user);
         }
+        
+       
         [HttpPost]
+       
+        
         [Authorize]
         public async Task<IActionResult> Edit(ApplicationUser userAppication)
         {

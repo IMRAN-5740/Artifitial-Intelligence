@@ -105,12 +105,25 @@
                 <div class="col-4">
                     <label asp-for="IsAvailable"></label>
                 </div>
-                <div class="col-8">
+                @if(Model.IsAvailable==true)
+                {
+                    <div class="col-8" style="color:green;font-size:larger">
+                        Stock Available
+                    </div>
+                }
+                else
+                {
+                    <div class="col-8" style="color:red;font-size:larger">
+                        Stock Out
+                    </div>
+                }
+               @* <div class="col-8">
+                    
                     <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />Available
-                   @* <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable*@
+                    <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable
 
-                </div>
-                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                </div>*@
+               
             </div>
 
             <div class="form-group">
@@ -120,7 +133,16 @@
         </div>
         <div class="col-1"></div>
         <div class="col-3">
+            <h3 style="text-align:center ;color:red">Product Picture</h3>
             <img src="~/@Model.Image" width="100%" />
+            @if (Model.IsAvailable)
+            {
+                <img src="~/ProductImages/in-stock.jpg" width="100%" height="70px" />
+            }
+            else
+            {
+                <img src="~/ProductImages/out-of-stock.jpg" width="100%" height="70px" />
+            }
         </div>
 
 

@@ -17,7 +17,7 @@ namespace ArtifitialIntelligence.Models
         [Display(Name = "Product Color")]
         public string ProductColor { get; set; }
         [Required]
-        [Display(Name = "Status")]
+        [Display(Name = "Available Status")]
         public bool IsAvailable { get; set; }
 
 

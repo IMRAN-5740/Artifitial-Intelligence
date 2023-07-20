@@ -104,25 +104,46 @@
                 <div class="col-4">
                     <label asp-for="IsAvailable"></label>
                 </div>
-                <div class="col-8">
-                    <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />Available
-                    @* <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable*@
+                @if (Model.IsAvailable == true)
+                {
+                    <div class="col-8" style="color:green;font-size:larger">
+                        Stock Available
+                    </div>
+                }
+                else
+                {
+                    <div class="col-8" style="color:red;font-size:larger">
+                        Stock Out
+                    </div>
+                }
+                @* <div class="col-8">
 
-                </div>
-                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />Available
+                <input asp-for="IsAvailable" class="" type="radio" value="Unavailable" />Unavailable
+
+                </div>*@
+
             </div>
 
             <div class="form-group">
-                <h5>Do you Want to Delete this Product?</h5>
+                <h5 class="text-danger">Do you Want to Delete this Product?</h5>
                 <input type="submit" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" value="Delete"/>
                 <a asp-action="Index" class="btn btn-success"> <i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Back to List</a>
             </div>
         </div>
         <div class="col-1"></div>
         <div class="col-3">
+            <h3 style="text-align:center ;color:red">Product Picture</h3>
             <img src="~/@Model.Image" width="100%" />
+            @if (Model.IsAvailable)
+            {
+                <img src="~/ProductImages/in-stock.jpg" width="100%" height="70px" />
+            }
+            else
+            {
+                <img src="~/ProductImages/out-of-stock.jpg" width="100%" height="70px" />
+            }
         </div>
-
 
     </div>
 </form>

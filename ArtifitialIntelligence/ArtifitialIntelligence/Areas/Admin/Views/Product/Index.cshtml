@@ -67,7 +67,15 @@
                      <td>
                            <img src="~/@data.Image" width="90%" height="00%"/>
                      </td>
-                    <td>@data.IsAvailable</td>
+                    @if(data.IsAvailable==true)
+                    {
+                        <td style="color:green;font-size:larger">Stock Available</td>
+                    }
+                    else
+                    {
+                        <td style="color:red;font-size:larger">Stock Out</td>
+                    }
+
                    
                     <td>@data.SpecialTag.SpecialTagName</td>
                     <td>@data.ProductTypes.ProductType</td>

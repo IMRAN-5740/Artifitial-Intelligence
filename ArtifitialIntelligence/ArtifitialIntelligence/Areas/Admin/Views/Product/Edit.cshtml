@@ -122,7 +122,16 @@
         </div>
         <div class="col-1"></div>
         <div class="col-3">
-            <img src="~/@Model.Image" width="100%"  />
+            <h3 style="text-align:center ;color:red">Product Picture</h3>
+            <img src="~/@Model.Image" width="100%" />
+            @if (Model.IsAvailable)
+            {
+                <img src="~/ProductImages/in-stock.jpg" width="100%" height="70px" />
+            }
+            else
+            {
+                <img src="~/ProductImages/out-of-stock.jpg" width="100%" height="70px" />
+            }
         </div>
 
         
