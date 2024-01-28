@@ -1,4 +1,4 @@
-# Artifitial-Intelligence
+#Shopping Mart
 This is an ASP DOT NET CORE MVC (Web Application) -----6.0 Dot Net Framework.
 Web Application using ASP.NET Core MVC 6.0, Entity Framework Core, Identity Framework Core, Microsoft SQL Server, PostgreSQL, Dependency Injection, Clean Code , Docker.
 ![Screenshot_89](https://github.com/IMRAN-5740/Digital-Diary/assets/89984763/1a034927-bec0-49c9-98fd-bfd9d2e4cea9)
